@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usman Zafar - MERN Stack Developer</title>
+  <meta name="description" content="Portfolio of Usman Zafar, a MERN Stack Developer specializing in full-stack web applications.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/umd/lucide.min.css">
+</head>
+<body class="light-mode">
+  <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle">
+    <button id="theme-toggle-btn" aria-label="Toggle theme">
+      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+  </div>
+
+  <!-- Floating Navigation -->
+  <nav id="floating-nav" class="floating-nav">
+    <div class="floating-nav-dots">
+      <button data-section="hero" class="nav-dot active" aria-label="Scroll to Home">
+        <span class="tooltip">Home</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="about" class="nav-dot" aria-label="Scroll to About">
+        <span class="tooltip">About</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="experience" class="nav-dot" aria-label="Scroll to Experience">
+        <span class="tooltip">Experience</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="skills" class="nav-dot" aria-label="Scroll to Skills">
+        <span class="tooltip">Skills</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="services" class="nav-dot" aria-label="Scroll to Services">
+        <span class="tooltip">Services</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="education" class="nav-dot" aria-label="Scroll to Education">
+        <span class="tooltip">Education</span>
+        <div class="dot"></div>
+      </button>
+      <button data-section="contact" class="nav-dot" aria-label="Scroll to Contact">
+        <span class="tooltip">Contact</span>
+        <div class="dot"></div>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="code-pattern"></div>
+      <div class="animated-gradient"></div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text animate-fade-in">
+            <h1 class="gradient-text">Usman Zafar</h1>
+            <h2>MERN Stack Developer</h2>
+            <p>Crafting exceptional digital experiences with modern web technologies. Specialized in building scalable full-stack applications using MongoDB, Express.js, React, and Node.js.</p>
+            <div class="social-links">
+              <a href="#" aria-label="GitHub Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gitlab"><path d="m22 13.29-3.33-10a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.11.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-2.26 6.67H8.32L6.1 3.26a.42.42 0 0 0-.1-.18.38.38 0 0 0-.26-.08.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18L2 13.29a.74.74 0 0 0 .27.83L12 21l9.69-6.88a.71.71 0 0 0 .31-.83Z"/></svg>
+              </a>
+              <a href="#" aria-label="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="mailto:musmanzafar53@gmail.com" aria-label="Email Contact">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+            </div>
+            <button id="learn-more-btn" class="primary-button">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </button>
+          </div>
+          <div class="hero-image animate-scale-in">
+            <div class="image-container">
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0812.jpg-jQSxWaycmtpBR7IUnsPV8C8L3vlrQ2.jpeg" alt="Usman Zafar">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator animate-fade-in-delayed">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">About Me</h2>
+        <div class="about-content">
+          <div class="about-text" data-animate="slide-right">
+            <p>As a passionate MERN Stack Developer, I specialize in building robust and scalable web applications. With a strong foundation in MongoDB, Express.js, React, and Node.js, I create seamless full-stack solutions that deliver exceptional user experiences.</p>
+            <p>My expertise extends to modern frameworks like Next.js and state management tools like Redux. I'm committed to writing clean, efficient code and staying up-to-date with the latest industry trends to deliver cutting-edge solutions for my clients.</p>
+          </div>
+          <div class="skills-grid" data-animate="slide-left">
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <h3>Frontend</h3>
+              <p>React, Next.js, Redux</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+              <h3>Backend</h3>
+              <p>Node.js, Express, Fastify</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              <h3>Database</h3>
+              <p>MongoDB, Mongoose</p>
+            </div>
+            <div class="skill-card">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <h3>Performance</h3>
+              <p>Optimization, Caching</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">Professional Experience</h2>
+        <div class="experience-timeline">
+          <div class="experience-card" data-animate="slide-up">
+            <h3>Freelance</h3>
+            <div class="experience-meta">
+              <p class="location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Remote
+              </p>
+              <p class="period">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                2024 - Present
+              </p>
+            </div>
+            <p class="role">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              MERN Stack Developer
+            </p>
+            <ul class="responsibilities">
+              <li>Developing custom web applications for international clients</li>
+              <li>Building responsive and scalable frontend interfaces with React</li>
+              <li>Implementing secure backend systems with Node.js and Express</li>
+              <li>Creating RESTful APIs and managing MongoDB databases</li>
+              <li>Collaborating with clients to deliver high-quality solutions</li>
+            </ul>
+          </div>
+
+          <div class="experience-card" data-animate="slide-up">
+            <h3>Salaba Fasteners</h3>
+            <div class="experience-meta">
+              <p class="location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Saudi Arabia (Hybrid)
+              </p>
+              <p class="period">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                2024 - Present
+              </p>
+            </div>
+            <p class="role">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              MERN Stack Developer
+            </p>
+            <ul class="responsibilities">
+              <li>Developed full-fledged ERP system using MERN stack</li>
+              <li>Designed and implemented RESTful APIs</li>
+              <li>Created responsive interfaces with React.js and Redux</li>
+              <li>Implemented secure authentication systems</li>
+              <li>Utilized WebSockets for real-time features</li>
+            </ul>
+          </div>
+
+          <div class="experience-card" data-animate="slide-up">
+            <h3>TechVention</h3>
+            <div class="experience-meta">
+              <p class="location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Lahore, Pakistan
+              </p>
+              <p class="period">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                2022 - 2024
+              </p>
+            </div>
+            <p class="role">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Software Engineer
+            </p>
+            <ul class="responsibilities">
+              <li>Migrated codebase to Fastify with TypeScript</li>
+              <li>Implemented OOP concepts for scalability</li>
+              <li>Built backend REST API and OAuth</li>
+              <li>Integrated third-party APIs</li>
+              <li>Implemented i18n features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">Skills & Expertise</h2>
+        <div class="skills-expertise-grid">
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Frontend Development</h3>
+              <p class="skill-tech">React.js, Next.js</p>
+            </div>
+            <p class="skill-description">Building responsive and interactive user interfaces with modern React features and Next.js for optimal performance.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Backend Development</h3>
+              <p class="skill-tech">Node.js, Express, Fastify</p>
+            </div>
+            <p class="skill-description">Creating robust server-side applications with focus on scalability and clean architecture.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Database Management</h3>
+              <p class="skill-tech">MongoDB, Mongoose</p>
+            </div>
+            <p class="skill-description">Designing and implementing efficient database schemas and queries for optimal data management.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>UI/UX Design</h3>
+              <p class="skill-tech">Tailwind CSS, Material UI</p>
+            </div>
+            <p class="skill-description">Crafting beautiful and intuitive user interfaces with modern design principles and frameworks.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Version Control</h3>
+              <p class="skill-tech">Git, GitHub</p>
+            </div>
+            <p class="skill-description">Managing code versions efficiently with Git and collaborating effectively through GitHub.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>TypeScript</h3>
+              <p class="skill-tech">TypeScript, JavaScript</p>
+            </div>
+            <p class="skill-description">Writing type-safe code for better maintainability and developer experience.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>State Management</h3>
+              <p class="skill-tech">Redux, Context API</p>
+            </div>
+            <p class="skill-description">Managing complex application state with modern state management solutions.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>API Development</h3>
+              <p class="skill-tech">REST, GraphQL</p>
+            </div>
+            <p class="skill-description">Designing and implementing efficient APIs for seamless data communication.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Web Performance</h3>
+              <p class="skill-tech">Optimization, SEO</p>
+            </div>
+            <p class="skill-description">Optimizing web applications for speed, accessibility, and search engine visibility.</p>
+          </div>
+
+          <div class="skill-expertise-card" data-animate="fade-in">
+            <div class="skill-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
+            </div>
+            <div class="skill-info">
+              <h3>Agile Methodologies</h3>
+              <p class="skill-tech">Scrum, Kanban</p>
+            </div>
+            <p class="skill-description">Working efficiently in agile environments with focus on continuous delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">My Services</h2>
+        <div class="services-grid">
+          <div class="service-card" data-animate="fade-in">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
+            </div>
+            <h3>Web Application Development</h3>
+            <p>Custom web applications built with React and Next.js, focusing on performance and user experience.</p>
+          </div>
+
+          <div class="service-card" data-animate="fade-in">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            </div>
+            <h3>Backend Development</h3>
+            <p>Robust and scalable server-side solutions using Node.js, Express, and Fastify.</p>
+          </div>
+
+          <div class="service-card" data-animate="fade-in">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>API Development</h3>
+            <p>RESTful and GraphQL API design and implementation for seamless data flow between client and server.</p>
+          </div>
+
+          <div class="service-card" data-animate="fade-in">
+            <div class="service-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>Mobile-first, responsive web designs that work flawlessly across all devices and screen sizes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">Education</h2>
+        <div class="education-container">
+          <div class="education-card" data-animate="slide-up">
+            <h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+              Bachelor's Degree in Computer Science
+            </h3>
+            <p class="institution">GC University Faisalabad</p>
+            <p class="period">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+              2018 – 2022
+            </p>
+            <h4>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              Key Achievements:
+            </h4>
+            <ul class="achievements">
+              <li>Graduated with honors</li>
+              <li>Specialized in Web Technologies and Artificial Intelligence</li>
+              <li>Completed capstone project on 'Intelligent Web Application for Healthcare'</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title" data-animate="fade-in">Get in Touch</h2>
+        <div class="contact-container">
+          <div class="contact-info" data-animate="slide-right">
+            <div class="contact-card">
+              <h3>Contact Information</h3>
+              <div class="contact-details">
+                <a href="mailto:musmanzafar53@gmail.com" class="contact-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  musmanzafar53@gmail.com
+                </a>
+                <a href="tel:+923055356766" class="contact-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  +92-305-5356766
+                </a>
+                <div class="contact-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Lahore, Pakistan
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-container" data-animate="slide-left">
+            <form id="contact-form" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                  <span class="error-message" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
+                  <span class="error-message" id="email-error"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+                <span class="error-message" id="subject-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <span class="error-message" id="message-error"></span>
+              </div>
+              <button type="submit" class="submit-button" id="submit-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                Send Message
+              </button>
+              <div id="form-success" class="form-success">Message sent successfully!</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
