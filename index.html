@@ -1,504 +1,960 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rayen Korbi - MERN Stack Developer</title>
-  <meta name="description" content="Portfolio of Rayen Korbi, a Data Analyst and Reinforcement Learning enthusiast.">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@latest/dist/umd/lucide.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayen Korbi | ML & Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: '#4B70F5',
+                        accent2: '#4C3BCF',
+                        dark: '#1A1A1B',
+                        darker: '#121213',
+                        light: '#E5E7EB',
+                        gray: '#6B7280'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1A1A1B;
+            color: #E5E7EB;
+            scroll-behavior: smooth;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            background-color: #121213;
+            border: 1px solid #2D2D2E;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #4B70F5;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        input, textarea {
+            background-color: #121213 !important;
+            border-color: #2D2D2E !important;
+            color: #E5E7EB !important;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: #4B70F5 !important;
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .logo-img {
+            height: 40px;
+            filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(747%) hue-rotate(203deg) brightness(96%) contrast(91%);
+        }
+
+        /* Blog post styles */
+        .blog-post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .blog-post-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-post-content ul, 
+        .blog-post-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post-content pre {
+            background-color: #121213;
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 3px solid #4B70F5;
+        }
+
+        .blog-post-content code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121213;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #4B70F5;
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background-color: #121213;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 1px solid #2D2D2E;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #2D2D2E;
+            position: sticky;
+            top: 0;
+            background-color: #121213;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #6B7280;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: #4B70F5;
+        }
+
+        .modal-content {
+            padding: 1.5rem;
+        }
+
+        /* All articles modal styles */
+        .all-articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #1A1A1B;
+            transition: all 0.3s ease;
+            border: 1px solid #2D2D2E;
+        }
+
+        .article-card:hover {
+            border-color: #4B70F5;
+            transform: translateX(4px);
+        }
+
+        .article-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            background-color: #4B70F5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .article-image i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .article-info {
+            flex: 1;
+        }
+
+        .article-date {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .article-excerpt {
+            font-size: 0.9375rem;
+            color: #9CA3AF;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .article-read-more {
+            color: #4B70F5;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .article-read-more i {
+            font-size: 0.75rem;
+            transition: transform 0.2s ease;
+        }
+
+        .article-card:hover .article-read-more i {
+            transform: translateX(2px);
+        }
+    </style>
 </head>
-<body class="light-mode">
-  <header>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-  <!-- Theme Toggle Button -->
-  <div class="theme-toggle">
-    <button id="theme-toggle-btn" aria-label="Toggle theme">
-      <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-      <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-    </button>
-  </div>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img src="/images/logo.png" alt="Logo" class="logo-img">
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-light px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="#work" class="nav-link text-light px-3 py-2 text-sm font-medium">Work</a>
+                        <a href="#projects" class="nav-link text-light px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#blog" class="nav-link text-light px-3 py-2 text-sm font-medium">Blog</a>
+                        <a href="#contact" class="nav-link text-light px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Home</a>
+                <a href="#work" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Work</a>
+                <a href="#projects" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Projects</a>
+                <a href="#blog" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Blog</a>
+                <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Floating Navigation -->
-  <nav id="floating-nav" class="floating-nav">
-    <div class="floating-nav-dots">
-      <button data-section="hero" class="nav-dot active" aria-label="Scroll to Home">
-        <span class="tooltip">Home</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="about" class="nav-dot" aria-label="Scroll to About">
-        <span class="tooltip">About</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="experience" class="nav-dot" aria-label="Scroll to Experience">
-        <span class="tooltip">Experience</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="skills" class="nav-dot" aria-label="Scroll to Skills">
-        <span class="tooltip">Skills</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="services" class="nav-dot" aria-label="Scroll to Services">
-        <span class="tooltip">Services</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="education" class="nav-dot" aria-label="Scroll to Education">
-        <span class="tooltip">Education</span>
-        <div class="dot"></div>
-      </button>
-      <button data-section="contact" class="nav-dot" aria-label="Scroll to Contact">
-        <span class="tooltip">Contact</span>
-        <div class="dot"></div>
-      </button>
-    </div>
-  </nav>
-
-  <main>
     <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-      <div class="code-pattern"></div>
-      <div class="animated-gradient"></div>
-      
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-text animate-fade-in">
-            <h1 class="gradient-text">Rayen Korbi</h1>
-            <h2>MERN Stack Developer</h2>
-            <p>Crafting exceptional digital experiences with modern web technologies. Specialized in building scalable full-stack applications using MongoDB, Express.js, React, and Node.js.</p>
-            <div class="social-links">
-              <a href="https://github.com/korbirayen" aria-label="GitHub Profile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gitlab"><path d="m22 13.29-3.33-10a.42.42 0 0 0-.14-.18.38.38 0 0 0-.22-.11.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18l-2.26 6.67H8.32L6.1 3.26a.42.42 0 0 0-.1-.18.38.38 0 0 0-.26-.08.39.39 0 0 0-.23.07.42.42 0 0 0-.14.18L2 13.29a.74.74 0 0 0 .27.83L12 21l9.69-6.88a.71.71 0 0 0 .31-.83Z"/></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" aria-label="LinkedIn Profile">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a href="mailto:contact.rayenkorbi@gmail.com" aria-label="Email Contact">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              </a>
+    <section id="home" class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                    Hi, I'm <span class="bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Rayen Korbi</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-8">
+                    ML Engineer & Security Specialist building intelligent systems with a focus on practical applications.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#contact" class="bg-gradient-to-r from-accent to-accent2 hover:from-accent/90 hover:to-accent2/90 text-white px-6 py-3 rounded font-medium transition">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
+                        View Work
+                    </a>
+                </div>
             </div>
-            <button id="learn-more-btn" class="primary-button">
-              Learn More
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-accent/20">
+                    <img src="/images/aina.png" 
+                         alt="Rayen Korbi" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Expertise</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Specializing in machine learning and cybersecurity solutions</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card p-6 rounded-lg">
+                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-brain text-accent text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Machine Learning</h3>
+                <p class="text-gray-400">Developing predictive models and intelligent systems for real-world applications.</p>
+            </div>
+            
+            <div class="card p-6 rounded-lg">
+                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-shield-alt text-accent text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Cybersecurity</h3>
+                <p class="text-gray-400">Implementing robust security measures to protect systems and data.</p>
+            </div>
+            
+            <div class="card p-6 rounded-lg">
+                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-code text-accent text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Software</h3>
+                <p class="text-gray-400">Building efficient, scalable software solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-6 max-w-6xl mx-auto bg-darker rounded-xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Selected Projects</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">A showcase of my recent work</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card p-6 rounded-lg">
+                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-robot text-accent text-5xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Fraud Detection AI</h3>
+                <p class="text-gray-400 mb-4">Machine learning model for detecting financial anomalies with high accuracy.</p>
+                <div class="flex gap-2">
+                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Python</span>
+                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">TensorFlow</span>
+                </div>
+            </div>
+            
+            <div class="card p-6 rounded-lg">
+                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-accent text-5xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Network Sentinel</h3>
+                <p class="text-gray-400 mb-4">Comprehensive network security monitoring and threat detection system.</p>
+                <div class="flex gap-2">
+                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Python</span>
+                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Security</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-block border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
+                View All Projects
+            </a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Latest Articles</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Thoughts on machine learning, security, and technology</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-posts-container">
+            <!-- 
+                BLOG POST TEMPLATE - COPY THIS STRUCTURE TO ADD NEW POSTS
+                ==========================================================
+                <div class="card p-6 rounded-lg">
+                    <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                        <i class="fas fa-[icon] text-accent text-5xl"></i>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-400 mb-2">
+                        <span>[Date]</span>
+                        <span class="mx-2">•</span>
+                        <span>[Read Time]</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">[Title]</h3>
+                    <p class="text-gray-400 mb-4">[Short Description]</p>
+                    <a href="#blog-post-[id]" class="text-accent font-medium inline-flex items-center view-post-btn">
+                        Read more <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            -->
+            
+            <!-- Blog Post 1 -->
+            <div class="card p-6 rounded-lg">
+                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-lock text-accent text-5xl"></i>
+                </div>
+                <div class="flex items-center text-sm text-gray-400 mb-2">
+                    <span>May 15, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span>5 min read</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Securing ML Models in Production</h3>
+                <p class="text-gray-400 mb-4">Best practices for protecting machine learning models from adversarial attacks in production environments.</p>
+                <a href="#blog-post-1" class="text-accent font-medium inline-flex items-center view-post-btn">
+                    Read more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Blog Post 2 -->
+            <div class="card p-6 rounded-lg">
+                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-chart-line text-accent text-5xl"></i>
+                </div>
+                <div class="flex items-center text-sm text-gray-400 mb-2">
+                    <span>April 28, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span>8 min read</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Anomaly Detection Techniques</h3>
+                <p class="text-gray-400 mb-4">Comparing traditional statistical methods with modern deep learning approaches for anomaly detection.</p>
+                <a href="#blog-post-2" class="text-accent font-medium inline-flex items-center view-post-btn">
+                    Read more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Blog Post 3 -->
+            <div class="card p-6 rounded-lg">
+                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-network-wired text-accent text-5xl"></i>
+                </div>
+                <div class="flex items-center text-sm text-gray-400 mb-2">
+                    <span>March 10, 2023</span>
+                    <span class="mx-2">•</span>
+                    <span>6 min read</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Zero Trust Architecture</h3>
+                <p class="text-gray-400 mb-4">Implementing zero trust principles in modern enterprise networks for enhanced security.</p>
+                <a href="#blog-post-3" class="text-accent font-medium inline-flex items-center view-post-btn">
+                    Read more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button id="view-all-articles" class="inline-block border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
+                View All Articles
             </button>
-          </div>
-          <div class="hero-image animate-scale-in">
-            <div class="image-container">
-              <img src="images/me.png" alt="Rayen Korbi">
-            </div>
-          </div>
         </div>
-      </div>
-      
-      <div class="scroll-indicator animate-fade-in-delayed">
-        <div class="scroll-line"></div>
-      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">About Me</h2>
-        <div class="about-content">
-          <div class="about-text" data-animate="slide-right">
-            <p>As a passionate MERN Stack Developer, I specialize in building robust and scalable web applications. With a strong foundation in MongoDB, Express.js, React, and Node.js, I create seamless full-stack solutions that deliver exceptional user experiences.</p>
-            <p>My expertise extends to modern frameworks like Next.js and state management tools like Redux. I'm committed to writing clean, efficient code and staying up-to-date with the latest industry trends to deliver cutting-edge solutions for my clients.</p>
-          </div>
-          <div class="skills-grid" data-animate="slide-left">
-            <div class="skill-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              <h3>Frontend</h3>
-              <p>React, Next.js, Redux</p>
+    <!-- Blog Post Modal -->
+    <div id="blog-post-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="blog-post-modal-title" class="modal-title"></h3>
+                <button class="modal-close">&times;</button>
             </div>
-            <div class="skill-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-              <h3>Backend</h3>
-              <p>Node.js, Express, Fastify</p>
+            <div id="blog-post-modal-content" class="modal-content blog-post-content">
+                <!-- Content will be inserted here -->
             </div>
-            <div class="skill-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-              <h3>Database</h3>
-              <p>MongoDB, Mongoose</p>
-            </div>
-            <div class="skill-card">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <h3>Performance</h3>
-              <p>Optimization, Caching</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">Professional Experience</h2>
-        <div class="experience-timeline">
-          <div class="experience-card" data-animate="slide-up">
-            <h3>Freelance</h3>
-            <div class="experience-meta">
-              <p class="location">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                Remote
-              </p>
-              <p class="period">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                2024 - Present
-              </p>
+    <!-- All Articles Modal -->
+    <div id="all-articles-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title">All Articles</h3>
+                <button class="modal-close">&times;</button>
             </div>
-            <p class="role">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              MERN Stack Developer
-            </p>
-            <ul class="responsibilities">
-              <li>Developing custom web applications for international clients</li>
-              <li>Building responsive and scalable frontend interfaces with React</li>
-              <li>Implementing secure backend systems with Node.js and Express</li>
-              <li>Creating RESTful APIs and managing MongoDB databases</li>
-              <li>Collaborating with clients to deliver high-quality solutions</li>
+            <div class="modal-content">
+                <div class="all-articles-grid" id="all-articles-grid">
+                    <!-- Articles will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dummy Blog Post Content (Hidden) -->
+    <div class="hidden">
+        <!-- Blog Post 1 Content -->
+        <div id="blog-post-1-content">
+            <h2>Introduction to ML Model Security</h2>
+            <p>Machine learning models in production environments are increasingly becoming targets for adversarial attacks. As these models power critical business decisions, ensuring their security is paramount.</p>
+            
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ML Security">
+            
+            <h2>Common Attack Vectors</h2>
+            <p>There are several ways attackers can compromise ML models:</p>
+            <ul>
+                <li><strong>Model Inversion:</strong> Reconstructing training data from model outputs</li>
+                <li><strong>Membership Inference:</strong> Determining if specific data was used in training</li>
+                <li><strong>Adversarial Examples:</strong> Crafting inputs to cause incorrect predictions</li>
             </ul>
-          </div>
+            
+            <h2>Defensive Strategies</h2>
+            <p>Implement these security measures:</p>
+            
+            <pre><code># Example: Differential Privacy in TensorFlow
+import tensorflow as privacy
 
-          <div class="experience-card" data-animate="slide-up">
-            <h3>Salaba Fasteners</h3>
-            <div class="experience-meta">
-              <p class="location">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                Saudi Arabia (Hybrid)
-              </p>
-              <p class="period">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                2024 - Present
-              </p>
-            </div>
-            <p class="role">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              MERN Stack Developer
-            </p>
-            <ul class="responsibilities">
-              <li>Developed full-fledged ERP system using MERN stack</li>
-              <li>Designed and implemented RESTful APIs</li>
-              <li>Created responsive interfaces with React.js and Redux</li>
-              <li>Implemented secure authentication systems</li>
-              <li>Utilized WebSockets for real-time features</li>
-            </ul>
-          </div>
-
-          <div class="experience-card" data-animate="slide-up">
-            <h3>TechVention</h3>
-            <div class="experience-meta">
-              <p class="location">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                Lahore, Pakistan
-              </p>
-              <p class="period">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                2022 - 2024
-              </p>
-            </div>
-            <p class="role">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              Software Engineer
-            </p>
-            <ul class="responsibilities">
-              <li>Migrated codebase to Fastify with TypeScript</li>
-              <li>Implemented OOP concepts for scalability</li>
-              <li>Built backend REST API and OAuth</li>
-              <li>Integrated third-party APIs</li>
-              <li>Implemented i18n features</li>
-            </ul>
-          </div>
+dp_optimizer = privacy.DPKerasAdamOptimizer(
+    l2_norm_clip=1.0,
+    noise_multiplier=0.5,
+    num_microbatches=1,
+    learning_rate=0.001
+)</code></pre>
+            
+            <p>Regular security audits and monitoring of model behavior are also essential for maintaining robust defenses against evolving threats.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">Skills & Expertise</h2>
-        <div class="skills-expertise-grid">
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Frontend Development</h3>
-              <p class="skill-tech">React.js, Next.js</p>
-            </div>
-            <p class="skill-description">Building responsive and interactive user interfaces with modern React features and Next.js for optimal performance.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Backend Development</h3>
-              <p class="skill-tech">Node.js, Express, Fastify</p>
-            </div>
-            <p class="skill-description">Creating robust server-side applications with focus on scalability and clean architecture.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Database Management</h3>
-              <p class="skill-tech">MongoDB, Mongoose</p>
-            </div>
-            <p class="skill-description">Designing and implementing efficient database schemas and queries for optimal data management.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>UI/UX Design</h3>
-              <p class="skill-tech">Tailwind CSS, Material UI</p>
-            </div>
-            <p class="skill-description">Crafting beautiful and intuitive user interfaces with modern design principles and frameworks.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Version Control</h3>
-              <p class="skill-tech">Git, GitHub</p>
-            </div>
-            <p class="skill-description">Managing code versions efficiently with Git and collaborating effectively through GitHub.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>TypeScript</h3>
-              <p class="skill-tech">TypeScript, JavaScript</p>
-            </div>
-            <p class="skill-description">Writing type-safe code for better maintainability and developer experience.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>State Management</h3>
-              <p class="skill-tech">Redux, Context API</p>
-            </div>
-            <p class="skill-description">Managing complex application state with modern state management solutions.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>API Development</h3>
-              <p class="skill-tech">REST, GraphQL</p>
-            </div>
-            <p class="skill-description">Designing and implementing efficient APIs for seamless data communication.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Web Performance</h3>
-              <p class="skill-tech">Optimization, SEO</p>
-            </div>
-            <p class="skill-description">Optimizing web applications for speed, accessibility, and search engine visibility.</p>
-          </div>
-
-          <div class="skill-expertise-card" data-animate="fade-in">
-            <div class="skill-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
-            </div>
-            <div class="skill-info">
-              <h3>Agile Methodologies</h3>
-              <p class="skill-tech">Scrum, Kanban</p>
-            </div>
-            <p class="skill-description">Working efficiently in agile environments with focus on continuous delivery.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">My Services</h2>
-        <div class="services-grid">
-          <div class="service-card" data-animate="fade-in">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
-            </div>
-            <h3>Web Application Development</h3>
-            <p>Custom web applications built with React and Next.js, focusing on performance and user experience.</p>
-          </div>
-
-          <div class="service-card" data-animate="fade-in">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-            </div>
-            <h3>Backend Development</h3>
-            <p>Robust and scalable server-side solutions using Node.js, Express, and Fastify.</p>
-          </div>
-
-          <div class="service-card" data-animate="fade-in">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <h3>API Development</h3>
-            <p>RESTful and GraphQL API design and implementation for seamless data flow between client and server.</p>
-          </div>
-
-          <div class="service-card" data-animate="fade-in">
-            <div class="service-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-            </div>
-            <h3>Responsive Design</h3>
-            <p>Mobile-first, responsive web designs that work flawlessly across all devices and screen sizes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">Education</h2>
-        <div class="education-container">
-          <div class="education-card" data-animate="slide-up">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-              Licence en Big Data et Analyse de Données
-            </h3>
-            <p class="institution">Université Centrale Polytechnique</p>
-            <p class="period">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              2023 – 2026
-            </p>
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-              Réalisations clés:
-            </h4>
-            <ul class="achievements">
-              <li>Solide maîtrise des technologies Big Data, Machine Learning et analyse de données</li>
-              <li>Expérience pratique avec Python (Pandas, NumPy, Scikit-learn), Hadoop, SQL et Spark</li>
-              <li>Développement de projets en visualisation et traitement de grandes volumétries de données</li>
-              <li>Spécialisation en ingénierie des données et intelligence artificielle</li>
+        
+        <!-- Blog Post 2 Content -->
+        <div id="blog-post-2-content">
+            <h2>Anomaly Detection Landscape</h2>
+            <p>Detecting anomalies in data streams is crucial for fraud detection, network security, and system monitoring. The field has evolved significantly in recent years.</p>
+            
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Anomaly Detection">
+            
+            <h2>Traditional Methods</h2>
+            <p>Statistical approaches have been the backbone of anomaly detection:</p>
+            <ul>
+                <li>Z-score analysis</li>
+                <li>Interquartile Range (IQR)</li>
+                <li>Density-based methods</li>
             </ul>
-          </div>
-          
-          
-          <div class="education-card" data-animate="slide-up">
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-              Baccalauréat en informatique
-            </h3>
-            <p class="institution">Lycée Hrairia 2</p>
-            <p class="period">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-              2022 - 2023
-            </p>
-            <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>  
-            Réalisations clés:
-            </h4>
-            <ul class="achievements">
-              <li>Acquisition d’une solide maîtrise en Python, HTML, CSS, JavaScript, PHP et SQL</li>
-              <li>Développement de plusieurs applications web et logiciels avec Python (PyQt).</li>
-              <li>Spécialisation en développement frontend et backend</li>
+            
+            <h2>Deep Learning Approaches</h2>
+            <p>Modern techniques leverage neural networks:</p>
+            <ul>
+                <li>Autoencoders for reconstruction error</li>
+                <li>GAN-based anomaly detection</li>
+                <li>Transformer models for sequential data</li>
             </ul>
-          </div>
+            
+            <pre><code># Example: Autoencoder for anomaly detection
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense
 
+input_dim = 20
+encoding_dim = 10
 
+input_layer = Input(shape=(input_dim,))
+encoder = Dense(encoding_dim, activation='relu')(input_layer)
+decoder = Dense(input_dim, activation='sigmoid')(encoder)
+autoencoder = Model(inputs=input_layer, outputs=decoder)</code></pre>
+            
+            <p>The choice between traditional and modern methods depends on your specific use case, data characteristics, and computational resources.</p>
         </div>
-      </div>
-    </section>
+        
+        <!-- Blog Post 3 Content -->
+        <div id="blog-post-3-content">
+            <h2>The Zero Trust Paradigm</h2>
+            <p>Traditional network security models based on perimeter defense are no longer sufficient in today's distributed computing environments.</p>
+            
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Zero Trust">
+            
+            <h2>Core Principles</h2>
+            <p>Zero Trust Architecture operates on three fundamental principles:</p>
+            <ol>
+                <li><strong>Verify explicitly:</strong> Authenticate and authorize every access request</li>
+                <li><strong>Least privilege access:</strong> Grant minimum necessary permissions</li>
+                <li><strong>Assume breach:</strong> Design systems with the expectation of compromise</li>
+            </ol>
+            
+            <h2>Implementation Strategies</h2>
+            <p>Key components of a Zero Trust implementation:</p>
+            
+            <pre><code>// Example: Policy decision point in ZTNA
+function evaluateAccess(user, resource, context) {
+    // Check user identity and device health
+    if (!user.authenticated || !device.isHealthy) {
+        return {granted: false, reason: "Authentication failed"};
+    }
+    
+    // Check time-based restrictions
+    if (context.time.hour < 9 || context.time.hour > 17) {
+        return {granted: false, reason: "Outside business hours"};
+    }
+    
+    // Default deny
+    return {granted: false, reason: "No matching policy"};
+}</code></pre>
+            
+            <p>Transitioning to Zero Trust requires careful planning and phased implementation, but the security benefits justify the investment.</p>
+        </div>
+    </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <h2 class="section-title" data-animate="fade-in">Get in Touch</h2>
-        <div class="contact-container">
-          <div class="contact-info" data-animate="slide-right">
-            <div class="contact-card">
-              <h3>Contact Information</h3>
-              <div class="contact-details">
-                <a href="mailto:musmanzafar53@gmail.com" class="contact-item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  contact.rayenkorbi@gmail.com
-                </a>
-                <a href="tel:+923055356766" class="contact-item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  +216 50 243 581
-                </a>
-                <div class="contact-item">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                  Tunis, Tunisia
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="contact-form-container" data-animate="slide-left">
-            <form id="contact-form" class="contact-form">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" required>
-                  <span class="error-message" id="name-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required>
-                  <span class="error-message" id="email-error"></span>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-                <span class="error-message" id="subject-error"></span>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <span class="error-message" id="message-error"></span>
-              </div>
-              <button type="submit" class="submit-button" id="submit-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                Send Message
-              </button>
-              <div id="form-success" class="form-success">Message sent successfully!</div>
-            </form>
-          </div>
+    <section id="contact" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Get In Touch</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Have a project or want to discuss opportunities?</p>
         </div>
-      </div>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-envelope text-accent"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Email</p>
+                            <p class="text-light">contact.rayenkorbi@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-accent"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Location</p>
+                            <p class="text-light">Tunis, Tunisia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold mb-6">Connect</h3>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/korbirayen" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-github text-light"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-linkedin-in text-light"></i>
+                        </a>
+                        <a href="https://x.com/k0_ryn" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter text-light"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <form class="space-y-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent">
+                    <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent">
+                    <input type="text" placeholder="Subject" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent">
+                    <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent"></textarea>
+                    <button type="submit" class="w-full bg-gradient-to-r from-accent to-accent2 hover:from-accent/90 hover:to-accent2/90 text-white px-6 py-3 rounded font-medium transition">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <script src="js/main.js"></script>
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <img src="/images/logo.png" alt="Logo" class="logo-img">
+                </div>
+                <div class="text-gray-400 text-sm">
+                    © 2025 All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Highlight active nav link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+
+        // Blog functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal elements
+            const blogPostModal = document.getElementById('blog-post-modal');
+            const blogPostModalTitle = document.getElementById('blog-post-modal-title');
+            const blogPostModalContent = document.getElementById('blog-post-modal-content');
+            const allArticlesModal = document.getElementById('all-articles-modal');
+            const allArticlesGrid = document.getElementById('all-articles-grid');
+            
+            // Close buttons
+            const closeButtons = document.querySelectorAll('.modal-close');
+            
+            // View All Articles button
+            const viewAllArticlesBtn = document.getElementById('view-all-articles');
+            
+            // Blog posts data (sorted by date, newest first)
+            const blogPosts = [
+                {
+                    id: 'blog-post-1',
+                    title: 'Securing ML Models in Production',
+                    date: 'May 15, 2023',
+                    readTime: '5 min read',
+                    excerpt: 'Best practices for protecting machine learning models from adversarial attacks in production environments.',
+                    icon: 'lock',
+                    contentId: 'blog-post-1-content'
+                },
+                {
+                    id: 'blog-post-2',
+                    title: 'Anomaly Detection Techniques',
+                    date: 'April 28, 2023',
+                    readTime: '8 min read',
+                    excerpt: 'Comparing traditional statistical methods with modern deep learning approaches for anomaly detection.',
+                    icon: 'chart-line',
+                    contentId: 'blog-post-2-content'
+                },
+                {
+                    id: 'blog-post-3',
+                    title: 'Zero Trust Architecture',
+                    date: 'March 10, 2023',
+                    readTime: '6 min read',
+                    excerpt: 'Implementing zero trust principles in modern enterprise networks for enhanced security.',
+                    icon: 'network-wired',
+                    contentId: 'blog-post-3-content'
+                }
+            ];
+            
+            // Populate all articles grid
+            function populateAllArticles() {
+                allArticlesGrid.innerHTML = '';
+                
+                blogPosts.forEach(post => {
+                    const articleCard = document.createElement('div');
+                    articleCard.className = 'article-card';
+                    articleCard.innerHTML = `
+                        <div class="article-image">
+                            <i class="fas fa-${post.icon}"></i>
+                        </div>
+                        <div class="article-info">
+                            <div class="article-date">${post.date} • ${post.readTime}</div>
+                            <h4 class="article-title">${post.title}</h4>
+                            <p class="article-excerpt">${post.excerpt}</p>
+                            <a href="#${post.id}" class="article-read-more view-post-btn">
+                                Read more <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    `;
+                    allArticlesGrid.appendChild(articleCard);
+                });
+            }
+            
+            // Initialize all articles grid
+            populateAllArticles();
+            
+            // View All Articles button click handler
+            viewAllArticlesBtn.addEventListener('click', function() {
+                allArticlesModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // View post button click handler (for both main page and all articles modal)
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('view-post-btn') || 
+                    e.target.parentElement.classList.contains('view-post-btn')) {
+                    
+                    e.preventDefault();
+                    
+                    // Get the post ID from the href
+                    const postLink = e.target.classList.contains('view-post-btn') ? 
+                        e.target : e.target.parentElement;
+                    const postId = postLink.getAttribute('href').substring(1);
+                    
+                    // Find the corresponding post in our data
+                    const post = blogPosts.find(p => p.id === postId);
+                    
+                    if (post) {
+                        // Set modal title
+                        blogPostModalTitle.textContent = post.title;
+                        
+                        // Load the corresponding content
+                        const postContent = document.getElementById(post.contentId).innerHTML;
+                        blogPostModalContent.innerHTML = postContent;
+                        
+                        // Show the modal
+                        blogPostModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                        
+                        // Close any other open modals
+                        allArticlesModal.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Close modal when clicking on overlay
+            [blogPostModal, allArticlesModal].forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+            
+            // Close modal when clicking on close button
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal-overlay');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    [blogPostModal, allArticlesModal].forEach(modal => {
+                        if (modal.classList.contains('active')) {
+                            modal.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                }
+            });
+            
+            // Handle direct links to blog posts (e.g., from URL hash)
+            window.addEventListener('load', function() {
+                if (window.location.hash && window.location.hash.startsWith('#blog-post-')) {
+                    const postId = window.location.hash.substring(1);
+                    const post = blogPosts.find(p => p.id === postId);
+                    
+                    if (post) {
+                        // Set modal title
+                        blogPostModalTitle.textContent = post.title;
+                        
+                        // Load the corresponding content
+                        const postContent = document.getElementById(post.contentId).innerHTML;
+                        blogPostModalContent.innerHTML = postContent;
+                        
+                        // Show the modal
+                        blogPostModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
