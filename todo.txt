@@ -1,0 +1,3 @@
+. add projects
+. add blogs
+. make a functional contact forum
