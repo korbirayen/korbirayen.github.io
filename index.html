@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rayen Korbi | ML & Security</title>
+    <title>Rayen Korbi | Data, ML & Security</title>
+        <meta name="description" content="Rayen Korbi — data analytics & big data student portfolio. Case studies in analysis, dashboards, and practical ML, with a security mindset.">
+        <link rel="canonical" href="https://korbirayen.github.io/">
+        <meta name="robots" content="index,follow">
+        <meta name="theme-color" content="#0B0C10">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Rayen Korbi | Data Analytics Portfolio">
+        <meta property="og:description" content="Case studies in analysis, dashboards, and practical ML (with a security mindset).">
+        <meta property="og:url" content="https://korbirayen.github.io/">
+        <meta property="og:image" content="https://korbirayen.github.io/images/logo.png">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Rayen Korbi | Data Analytics Portfolio">
+        <meta name="twitter:description" content="Case studies in analysis, dashboards, and practical ML.">
+        <meta name="twitter:image" content="https://korbirayen.github.io/images/logo.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Rayen Korbi",
+                    "url": "https://korbirayen.github.io/",
+                    "image": "https://korbirayen.github.io/images/aina.png",
+                    "jobTitle": "Data analytics / big data student",
+                    "sameAs": [
+                        "https://github.com/korbirayen",
+                        "https://www.linkedin.com/in/rayen-korbi-4ab072240/",
+                        "https://x.com/k0_ryn"
+                    ]
+                }
+        </script>
     <script>
         tailwind.config = {
             theme: {
@@ -28,23 +64,89 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --accent: #4B70F5;
+            --accent2: #4C3BCF;
+            --bg: #0B0C10;
+            --panel: rgba(18, 18, 19, 0.78);
+            --panel2: rgba(18, 18, 19, 0.52);
+            --text: #E5E7EB;
+            --muted: rgba(229, 231, 235, 0.72);
+            --border: rgba(255, 255, 255, 0.10);
+            --border2: rgba(255, 255, 255, 0.06);
+            --shadow: 0 18px 70px rgba(0, 0, 0, 0.62);
+            --shadow2: 0 10px 40px rgba(0, 0, 0, 0.45);
+            --radius: 18px;
+        }
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1A1A1B;
-            color: #E5E7EB;
+            background:
+                radial-gradient(1200px 680px at 14% 0%, rgba(75, 112, 245, 0.14), transparent 60%),
+                radial-gradient(980px 620px at 86% 10%, rgba(76, 59, 207, 0.12), transparent 60%),
+                var(--bg);
+            color: var(--text);
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            position: relative;
+            isolation: isolate;
+        }
+
+        ::selection {
+            background: rgba(75, 112, 245, 0.35);
+            color: var(--text);
+        }
+
+        :focus-visible {
+            outline: 2px solid rgba(75, 112, 245, 0.55);
+            outline-offset: 3px;
+            border-radius: 10px;
         }
         
         .card {
-            transition: all 0.3s ease;
-            background-color: #121213;
-            border: 1px solid #2D2D2E;
+            transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+            background: rgba(18, 18, 19, 0.70);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
         }
         
         .card:hover {
             transform: translateY(-4px);
-            border-color: #4B70F5;
+            border-color: rgba(255, 255, 255, 0.16);
+            box-shadow: var(--shadow2);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            box-shadow: 0 10px 34px rgba(75, 112, 245, 0.14);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 14px 48px rgba(75, 112, 245, 0.22);
+        }
+
+        .btn-secondary {
+            background: rgba(18, 18, 19, 0.58);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(75, 112, 245, 0.45);
         }
         
         .nav-link {
@@ -69,17 +171,35 @@
         .active-nav::after {
             width: 100%;
         }
+
+        .nav-shell {
+            position: relative;
+            background: rgba(11, 12, 16, 0.55);
+            backdrop-filter: blur(14px);
+        }
+
+        .nav-shell::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+            opacity: 0.8;
+            pointer-events: none;
+        }
         
         input, textarea {
-            background-color: #121213 !important;
-            border-color: #2D2D2E !important;
-            color: #E5E7EB !important;
+            background-color: rgba(18, 18, 19, 0.72) !important;
+            border-color: rgba(255, 255, 255, 0.10) !important;
+            color: var(--text) !important;
         }
         
         input:focus, textarea:focus {
-            border-color: #4B70F5 !important;
+            border-color: rgba(75, 112, 245, 0.75) !important;
             outline: none;
-            box-shadow: none;
+            box-shadow: 0 0 0 6px rgba(75, 112, 245, 0.12);
         }
         
         .logo-img {
@@ -87,7 +207,75 @@
             filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(747%) hue-rotate(203deg) brightness(96%) contrast(91%);
         }
 
-        /* Blog post styles */
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-tight {
+            padding: 3.75rem 1.5rem;
+        }
+
+        .kicker {
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: rgba(229, 231, 235, 0.65);
+        }
+
+        .grad-text {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid var(--border2);
+            background: rgba(18, 18, 19, 0.48);
+            backdrop-filter: blur(10px);
+        }
+
+        .case-card {
+            border-radius: calc(var(--radius) + 4px);
+        }
+
+        .case-metric {
+            border: 1px dashed rgba(255, 255, 255, 0.14);
+            background: rgba(18, 18, 19, 0.40);
+            border-radius: 14px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 520ms ease, transform 520ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body { scroll-behavior: auto; }
+            .card,
+            .btn,
+            .reveal { transition: none !important; }
+            .card:hover { transform: none; }
+            .btn:hover { transform: none; }
+        }
+
+        /* Writing modal styles (keep functionality, nicer typography) */
         .blog-post-content img {
             max-width: 100%;
             height: auto;
@@ -100,6 +288,7 @@
             font-weight: 600;
             margin: 1.5rem 0 1rem;
             background: linear-gradient(90deg, #4B70F5, #4C3BCF);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -159,14 +348,16 @@
         }
 
         .modal-container {
-            background-color: #121213;
+            background-color: rgba(18, 18, 19, 0.88);
             border-radius: 12px;
             width: 90%;
             max-width: 800px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            border: 1px solid #2D2D2E;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
             transform: translateY(20px);
             transition: transform 0.3s ease;
         }
@@ -177,10 +368,10 @@
 
         .modal-header {
             padding: 1.5rem;
-            border-bottom: 1px solid #2D2D2E;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
             position: sticky;
             top: 0;
-            background-color: #121213;
+            background-color: rgba(18, 18, 19, 0.92);
             z-index: 10;
             display: flex;
             justify-content: space-between;
@@ -191,6 +382,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             background: linear-gradient(90deg, #4B70F5, #4C3BCF);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -294,26 +486,32 @@
     </style>
 </head>
 <body class="min-h-screen">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
+        Skip to content
+    </a>
+
+    <header>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
-        <div class="max-w-6xl mx-auto px-6">
+    <nav class="nav-shell fixed w-full z-50 border-b border-gray-800/40" aria-label="Primary">
+        <div class="container px-6">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <img src="/images/logo.png" alt="Logo" class="logo-img">
-                    </div>
+                <a href="#home" class="flex items-center gap-3">
+                    <img src="/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="hidden sm:inline text-sm text-gray-300 tracking-wide">Rayen Korbi</span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#work" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Work</a>
+                    <a href="#projects" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Case Studies</a>
+                    <a href="#blog" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Writing</a>
+                    <a href="#contact" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Contact</a>
+                    <a href="#contact" class="btn btn-secondary text-white px-4 py-2 rounded-md text-sm font-semibold">
+                        Reach out
+                    </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-light px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="#work" class="nav-link text-light px-3 py-2 text-sm font-medium">Work</a>
-                        <a href="#projects" class="nav-link text-light px-3 py-2 text-sm font-medium">Projects</a>
-                        <a href="#blog" class="nav-link text-light px-3 py-2 text-sm font-medium">Blog</a>
-                        <a href="#contact" class="nav-link text-light px-3 py-2 text-sm font-medium">Contact</a>
-                    </div>
-                </div>
+
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-light hover:text-accent focus:outline-none">
+                    <button id="mobile-menu-button" class="text-light hover:text-accent focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -321,206 +519,302 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-gray-800">
-            <div class="px-4 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Home</a>
-                <a href="#work" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Work</a>
-                <a href="#projects" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Projects</a>
-                <a href="#blog" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Blog</a>
-                <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800/40" style="background: rgba(11, 12, 16, 0.7); backdrop-filter: blur(16px);" role="dialog" aria-label="Mobile navigation" aria-modal="false">
+            <div class="px-4 pt-3 pb-4 space-y-2">
+                <a href="#work" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Work</a>
+                <a href="#projects" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Case Studies</a>
+                <a href="#blog" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Writing</a>
+                <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Contact</a>
+                <a href="#contact" class="block px-3 py-2 rounded text-sm font-semibold text-white" style="background: rgba(18, 18, 19, 0.6); border: 1px solid rgba(255,255,255,0.14);">Reach out</a>
             </div>
         </div>
     </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                    Hi, I'm <span class="bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Rayen Korbi</span>
-                </h1>
-                <p class="text-lg text-gray-400 mb-8">
-                    ML Engineer & Security Specialist building intelligent systems with a focus on practical applications.
+    <main id="main-content">
+
+    <!-- Hero -->
+    <section id="home" class="section pt-28 md:pt-32">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7">
+                    <div class="kicker">Rayen Korbi • Tunis, Tunisia</div>
+
+                    <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight">
+                        Data work that’s <span class="grad-text">useful</span> on Monday.
+                    </h1>
+                    <p class="mt-5 text-lg md:text-xl" style="color: var(--muted); max-width: 46ch;">
+                        I’m a data-focused builder. I care about clean metrics, fast iteration, and shipping dashboards/analyses people actually use.
+                    </p>
+
+                    <div class="mt-5 text-sm text-gray-400" style="max-width: 62ch;">
+                        Lately: SQL + Python for analysis, Power BI for reporting, and a security mindset when data gets sensitive.
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <a href="#projects" class="btn btn-primary bg-gradient-to-r from-accent to-accent2 text-white px-6 py-3 rounded-lg font-semibold">
+                            See case studies
+                        </a>
+                        <a href="#contact" class="btn btn-secondary text-light px-6 py-3 rounded-lg font-semibold">
+                            Contact
+                        </a>
+                        <a href="https://github.com/korbirayen" class="btn btn-secondary text-light px-6 py-3 rounded-lg font-semibold" target="_blank" rel="noreferrer">
+                            GitHub
+                        </a>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">SQL</span>
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">Power BI</span>
+                        <span class="pill text-xs text-gray-200">Security</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="card p-6 case-card">
+                        <div class="flex items-center gap-4">
+                            <div class="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/10">
+                                <img src="/images/aina.png" alt="Rayen Korbi" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <div class="text-sm" style="color: var(--muted);">Hi — I’m Rayen.</div>
+                                <div class="text-lg font-semibold text-white">Data analysis + practical ML</div>
+                                <div class="text-sm text-gray-400">I like simple solutions that stick.</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-2 gap-3">
+                            <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" target="_blank" rel="noreferrer" class="btn btn-secondary w-full px-4 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </a>
+                            <a href="https://x.com/k0_ryn" target="_blank" rel="noreferrer" class="btn btn-secondary w-full px-4 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
+                                <i class="fab fa-twitter"></i> X
+                            </a>
+                        </div>
+
+                        <div class="mt-6">
+                            <div class="kicker">What you’ll get</div>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Clean KPIs</span>
+                                <span class="pill text-xs text-gray-200">Dashboards</span>
+                                <span class="pill text-xs text-gray-200">Automation</span>
+                                <span class="pill text-xs text-gray-200">Documentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work / Value -->
+    <section id="work" class="section-tight">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Work</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">What I’m good at</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
+                    Defining metrics, digging for root causes, and building reporting that stays correct after the next schema change.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#contact" class="bg-gradient-to-r from-accent to-accent2 hover:from-accent/90 hover:to-accent2/90 text-white px-6 py-3 rounded font-medium transition">
-                        Get In Touch
-                    </a>
-                    <a href="#projects" class="border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
-                        View Work
-                    </a>
-                </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-accent/20">
-                    <img src="/images/aina.png" 
-                         alt="Rayen Korbi" 
-                         class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Work Section -->
-    <section id="work" class="py-16 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Expertise</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Specializing in machine learning and cybersecurity solutions</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card p-6 rounded-lg">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-brain text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Machine Learning</h3>
-                <p class="text-gray-400">Developing predictive models and intelligent systems for real-world applications.</p>
-            </div>
-            
-            <div class="card p-6 rounded-lg">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-shield-alt text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Cybersecurity</h3>
-                <p class="text-gray-400">Implementing robust security measures to protect systems and data.</p>
-            </div>
-            
-            <div class="card p-6 rounded-lg">
-                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-code text-accent text-xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Software</h3>
-                <p class="text-gray-400">Building efficient, scalable software solutions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 px-6 max-w-6xl mx-auto bg-darker rounded-xl">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Selected Projects</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">A showcase of my recent work</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="card p-6 rounded-lg">
-                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-robot text-accent text-5xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2">Fraud Detection AI</h3>
-                <p class="text-gray-400 mb-4">Machine learning model for detecting financial anomalies with high accuracy.</p>
-                <div class="flex gap-2">
-                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Python</span>
-                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">TensorFlow</span>
-                </div>
-            </div>
-            
-            <div class="card p-6 rounded-lg">
-                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-shield-alt text-accent text-5xl"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2">Network Sentinel</h3>
-                <p class="text-gray-400 mb-4">Comprehensive network security monitoring and threat detection system.</p>
-                <div class="flex gap-2">
-                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Python</span>
-                    <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Security</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center mt-12">
-            <a href="#" class="inline-block border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
-                View All Projects
-            </a>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-16 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Latest Articles</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Thoughts on machine learning, security, and technology</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-posts-container">
-            <!-- 
-                BLOG POST TEMPLATE - COPY THIS STRUCTURE TO ADD NEW POSTS
-                ==========================================================
-                <div class="card p-6 rounded-lg">
-                    <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                        <i class="fas fa-[icon] text-accent text-5xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card p-6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
+                        <i class="fas fa-magnifying-glass-chart text-accent"></i>
                     </div>
-                    <div class="flex items-center text-sm text-gray-400 mb-2">
-                        <span>[Date]</span>
-                        <span class="mx-2">•</span>
-                        <span>[Read Time]</span>
+                    <h3 class="mt-4 text-xl font-semibold">Analysis</h3>
+                    <p class="mt-2 text-gray-400">Cohorts, funnels, anomaly checks, and “what changed?” analysis without hand-wavy conclusions.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.12);">
+                        <i class="fas fa-gauge-high text-accent"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">[Title]</h3>
-                    <p class="text-gray-400 mb-4">[Short Description]</p>
-                    <a href="#blog-post-[id]" class="text-accent font-medium inline-flex items-center view-post-btn">
-                        Read more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    <h3 class="mt-4 text-xl font-semibold">Reporting</h3>
+                    <p class="mt-2 text-gray-400">Power BI dashboards with clear KPI definitions, validation checks, and sane drill-downs.</p>
                 </div>
-            -->
-            
-            <!-- Blog Post 1 -->
-            <div class="card p-6 rounded-lg">
-                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-lock text-accent text-5xl"></i>
+                <div class="card p-6">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
+                        <i class="fas fa-gear text-accent"></i>
+                    </div>
+                    <h3 class="mt-4 text-xl font-semibold">Automation</h3>
+                    <p class="mt-2 text-gray-400">Small scripts and checks that save hours each week (and stop bad data from shipping).</p>
                 </div>
-                <div class="flex items-center text-sm text-gray-400 mb-2">
-                    <span>May 15, 2023</span>
-                    <span class="mx-2">•</span>
-                    <span>5 min read</span>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Securing ML Models in Production</h3>
-                <p class="text-gray-400 mb-4">Best practices for protecting machine learning models from adversarial attacks in production environments.</p>
-                <a href="#blog-post-1" class="text-accent font-medium inline-flex items-center view-post-btn">
-                    Read more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-            
-            <!-- Blog Post 2 -->
-            <div class="card p-6 rounded-lg">
-                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-chart-line text-accent text-5xl"></i>
-                </div>
-                <div class="flex items-center text-sm text-gray-400 mb-2">
-                    <span>April 28, 2023</span>
-                    <span class="mx-2">•</span>
-                    <span>8 min read</span>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Anomaly Detection Techniques</h3>
-                <p class="text-gray-400 mb-4">Comparing traditional statistical methods with modern deep learning approaches for anomaly detection.</p>
-                <a href="#blog-post-2" class="text-accent font-medium inline-flex items-center view-post-btn">
-                    Read more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-            
-            <!-- Blog Post 3 -->
-            <div class="card p-6 rounded-lg">
-                <div class="h-48 bg-accent/10 rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-network-wired text-accent text-5xl"></i>
-                </div>
-                <div class="flex items-center text-sm text-gray-400 mb-2">
-                    <span>March 10, 2023</span>
-                    <span class="mx-2">•</span>
-                    <span>6 min read</span>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Zero Trust Architecture</h3>
-                <p class="text-gray-400 mb-4">Implementing zero trust principles in modern enterprise networks for enhanced security.</p>
-                <a href="#blog-post-3" class="text-accent font-medium inline-flex items-center view-post-btn">
-                    Read more <i class="fas fa-arrow-right ml-2"></i>
-                </a>
             </div>
         </div>
-        
-        <div class="text-center mt-12">
-            <button id="view-all-articles" class="inline-block border border-gray-700 hover:border-accent text-light px-6 py-3 rounded font-medium transition">
-                View All Articles
-            </button>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="flex items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="kicker">Case studies</div>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-bold">Selected work</h2>
+                    <p class="mt-4 text-lg" style="color: var(--muted); max-width: 72ch;">
+                        Real portfolios read like specifics. Swap the bracketed parts for your real numbers when you’re ready.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Case study 01</div>
+                            <h3 class="mt-2 text-2xl font-semibold">Fraud detection workflow</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
+                            <i class="fas fa-robot text-accent text-xl"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-gray-400">Goal: catch suspicious behavior earlier, without spamming analysts with false positives.</p>
+
+                    <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
+                        <li>Built a labeled dataset from transaction + user activity logs</li>
+                        <li>Engineered features and evaluated baseline vs ML model</li>
+                        <li>Shipped an alert score + simple review dashboard</li>
+                    </ul>
+
+                    <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Result</div>
+                            <div class="font-semibold text-gray-100">-[X]% false positives</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Time</div>
+                            <div class="font-semibold text-gray-100">-[Y] mins / case</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Notes</div>
+                            <div class="font-semibold text-gray-100">Monitoring + QA</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">SQL</span>
+                        <span class="pill text-xs text-gray-200">scikit-learn</span>
+                    </div>
+                </article>
+
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Case study 02</div>
+                            <h3 class="mt-2 text-2xl font-semibold">Security monitoring dashboards</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
+                            <i class="fas fa-shield-halved text-accent text-xl"></i>
+                        </div>
+                    </div>
+
+                    <p class="mt-4 text-gray-400">Goal: make security events understandable at a glance and easier to investigate.</p>
+
+                    <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
+                        <li>Defined a small set of KPIs + alert thresholds</li>
+                        <li>Built dashboards with drill-down to raw logs</li>
+                        <li>Added sanity checks to catch broken ingestion</li>
+                    </ul>
+
+                    <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Result</div>
+                            <div class="font-semibold text-gray-100">-[X] hrs to detect</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Coverage</div>
+                            <div class="font-semibold text-gray-100">[N] event types</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Stack</div>
+                            <div class="font-semibold text-gray-100">Power BI + SQL</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">Power BI</span>
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">Security</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1">
+                <article class="card p-7 case-card">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                        <div>
+                            <div class="kicker">Case study 03</div>
+                            <h3 class="mt-2 text-2xl font-semibold">Metrics layer + QA checks</h3>
+                            <p class="mt-3 text-gray-400">A small “metrics contract”: definitions, tests, and a couple of dashboards that catch upstream breakage.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill text-xs text-gray-200">SQL</span>
+                            <span class="pill text-xs text-gray-200">Data modeling</span>
+                            <span class="pill text-xs text-gray-200">Automation</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="blog" class="section">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Writing</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Notes on data, ML, and security</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted);">Short posts and deep dives. (Opens in a focused reading modal.)</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="blog-posts-container">
+                <div class="card p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="kicker">May 15, 2023</div>
+                        <span class="pill text-xs text-gray-200">5 min</span>
+                    </div>
+                    <h3 class="mt-3 text-xl font-semibold">Securing ML Models in Production</h3>
+                    <p class="mt-2 text-gray-400">Practical strategies to protect models from common attack vectors.</p>
+                    <a href="#blog-post-1" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
+                        Read <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="kicker">April 28, 2023</div>
+                        <span class="pill text-xs text-gray-200">8 min</span>
+                    </div>
+                    <h3 class="mt-3 text-xl font-semibold">Anomaly Detection Techniques</h3>
+                    <p class="mt-2 text-gray-400">Traditional statistics vs deep learning, and when each wins.</p>
+                    <a href="#blog-post-2" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
+                        Read <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="card p-6">
+                    <div class="flex items-center justify-between">
+                        <div class="kicker">March 10, 2023</div>
+                        <span class="pill text-xs text-gray-200">6 min</span>
+                    </div>
+                    <h3 class="mt-3 text-xl font-semibold">Zero Trust Architecture</h3>
+                    <p class="mt-2 text-gray-400">A grounded take on building systems that assume breach.</p>
+                    <a href="#blog-post-3" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
+                        Read <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <button id="view-all-articles" class="btn btn-secondary px-6 py-3 rounded-lg font-semibold">
+                    View all articles
+                </button>
+            </div>
         </div>
     </section>
 
@@ -559,7 +853,7 @@
             <h2>Introduction to ML Model Security</h2>
             <p>Machine learning models in production environments are increasingly becoming targets for adversarial attacks. As these models power critical business decisions, ensuring their security is paramount.</p>
             
-            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ML Security">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ML Security" loading="lazy" decoding="async">
             
             <h2>Common Attack Vectors</h2>
             <p>There are several ways attackers can compromise ML models:</p>
@@ -590,7 +884,7 @@ dp_optimizer = privacy.DPKerasAdamOptimizer(
             <h2>Anomaly Detection Landscape</h2>
             <p>Detecting anomalies in data streams is crucial for fraud detection, network security, and system monitoring. The field has evolved significantly in recent years.</p>
             
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Anomaly Detection">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Anomaly Detection" loading="lazy" decoding="async">
             
             <h2>Traditional Methods</h2>
             <p>Statistical approaches have been the backbone of anomaly detection:</p>
@@ -628,7 +922,7 @@ autoencoder = Model(inputs=input_layer, outputs=decoder)</code></pre>
             <h2>The Zero Trust Paradigm</h2>
             <p>Traditional network security models based on perimeter defense are no longer sufficient in today's distributed computing environments.</p>
             
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Zero Trust">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Zero Trust" loading="lazy" decoding="async">
             
             <h2>Core Principles</h2>
             <p>Zero Trust Architecture operates on three fundamental principles:</p>
@@ -662,135 +956,150 @@ function evaluateAccess(user, resource, context) {
     </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold mb-4 bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">Get In Touch</h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">Have a project or want to discuss opportunities?</p>
-        </div>
-        
-        <div class="flex flex-col md:flex-row gap-12">
-            <div class="md:w-1/2">
-                <h3 class="text-xl font-bold mb-6">Contact Information</h3>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                            <i class="fas fa-envelope text-accent"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-400 text-sm">Email</p>
-                            <p class="text-light">contact.rayenkorbi@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                            <i class="fas fa-map-marker-alt text-accent"></i>
-                        </div>
-                        <div>
-                            <p class="text-gray-400 text-sm">Location</p>
-                            <p class="text-light">Tunis, Tunisia</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mt-12">
-                    <h3 class="text-xl font-bold mb-6">Connect</h3>
-                    <div class="flex gap-4">
-                        <a href="https://github.com/korbirayen" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-github text-light"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-linkedin-in text-light"></i>
-                        </a>
-                        <a href="https://x.com/k0_ryn" class="w-12 h-12 bg-darker hover:bg-accent/10 rounded-full flex items-center justify-center transition">
-                            <i class="fab fa-twitter text-light"></i>
-                        </a>
-                    </div>
-                </div>
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Contact</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Want to work together?</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted);">Send a message and I’ll reply with next steps.</p>
             </div>
-            <div class="md:w-1/2">
-                <form class="space-y-4" target="_blank" action="https://formsubmit.co/contact.rayenkorbi@gmail.com" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent" required>
-                    <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent" required>
-                    <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent" required>
-                    <textarea rows="4" name="message" placeholder="Message" class="w-full px-4 py-3 rounded focus:ring-1 focus:ring-accent" required></textarea>
-                    <button type="submit" class="w-full bg-gradient-to-r from-accent to-accent2 hover:from-accent/90 hover:to-accent2/90 text-white px-6 py-3 rounded font-medium transition">
-                        Send Message
-                    </button>
-                </form>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-5">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold">Contact</h3>
+                        <div class="mt-5 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
+                                    <i class="fas fa-envelope text-accent"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400">Email</div>
+                                    <div class="text-sm text-gray-200">contact.rayenkorbi@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.12);">
+                                    <i class="fas fa-location-dot text-accent"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400">Location</div>
+                                    <div class="text-sm text-gray-200">Tunis, Tunisia</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="kicker">Connect</div>
+                            <div class="mt-3 flex gap-3">
+                                <a href="https://github.com/korbirayen" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-github text-light"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-linkedin-in text-light"></i>
+                                </a>
+                                <a href="https://x.com/k0_ryn" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
+                                    <i class="fab fa-twitter text-light"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold">Message me</h3>
+                        <form class="mt-5 space-y-4" target="_blank" action="https://formsubmit.co/contact.rayenkorbi@gmail.com" method="POST">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
+                                <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
+                            </div>
+                            <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
+                            <textarea rows="5" name="message" placeholder="Message" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required></textarea>
+                            <button type="submit" class="btn btn-primary w-full bg-gradient-to-r from-accent to-accent2 text-white px-6 py-3 rounded-lg font-semibold">
+                                Send message
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="mb-4 md:mb-0">
+    <footer class="py-10 px-6 border-t border-gray-800/40">
+        <div class="container">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
                     <img src="/images/logo.png" alt="Logo" class="logo-img">
+                    <span class="text-sm text-gray-400">© 2025 Rayen Korbi</span>
                 </div>
-                <div class="text-gray-400 text-sm">
-                    © 2025 All rights reserved.
-                </div>
+                <div class="text-sm text-gray-400">Built with Tailwind + a tiny bit of JS.</div>
             </div>
         </div>
     </footer>
+
+    </main>
 
     <script>
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
         });
-        
+
+        // Close mobile menu with Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+            if (mobileMenu.classList.contains('hidden')) return;
+            mobileMenu.classList.add('hidden');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuButton.focus();
+        });
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Highlight active nav link
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active-nav');
+
+                // allow external links
+                if (!targetId || targetId.length < 2 || !targetElement) return;
+
+                e.preventDefault();
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 76,
+                    behavior: 'smooth'
+                });
+
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
                 }
             });
         });
 
-        // Blog functionality
+        // Highlight active nav link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                if (pageYOffset >= section.offsetTop - 120) current = section.getAttribute('id');
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active-nav');
+            });
+        });
+
+        // Writing modal functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Modal elements
             const blogPostModal = document.getElementById('blog-post-modal');
@@ -891,6 +1200,14 @@ function evaluateAccess(user, resource, context) {
                         // Load the corresponding content
                         const postContent = document.getElementById(post.contentId).innerHTML;
                         blogPostModalContent.innerHTML = postContent;
+
+                        // Lazy-load any images inside the injected post content
+                        blogPostModalContent.querySelectorAll('img[data-src]').forEach((img) => {
+                            const realSrc = img.getAttribute('data-src');
+                            if (!realSrc) return;
+                            img.setAttribute('src', realSrc);
+                            img.removeAttribute('data-src');
+                        });
                         
                         // Show the modal
                         blogPostModal.classList.add('active');
@@ -946,6 +1263,14 @@ function evaluateAccess(user, resource, context) {
                         // Load the corresponding content
                         const postContent = document.getElementById(post.contentId).innerHTML;
                         blogPostModalContent.innerHTML = postContent;
+
+                        // Lazy-load any images inside the injected post content
+                        blogPostModalContent.querySelectorAll('img[data-src]').forEach((img) => {
+                            const realSrc = img.getAttribute('data-src');
+                            if (!realSrc) return;
+                            img.setAttribute('src', realSrc);
+                            img.removeAttribute('data-src');
+                        });
                         
                         // Show the modal
                         blogPostModal.classList.add('active');
@@ -954,6 +1279,38 @@ function evaluateAccess(user, resource, context) {
                 }
             });
         });
+
+        // Scroll-reveal (tasteful motion, respects reduced-motion)
+        (function initScrollReveal() {
+            const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const targets = [
+                ...document.querySelectorAll('section'),
+                ...document.querySelectorAll('.card'),
+                document.querySelector('footer'),
+            ].filter(Boolean);
+
+            if (targets.length === 0) return;
+
+            targets.forEach((el) => el.classList.add('reveal'));
+
+            if (prefersReducedMotion) {
+                targets.forEach((el) => el.classList.add('is-visible'));
+                return;
+            }
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    });
+                },
+                { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+            );
+
+            targets.forEach((el) => observer.observe(el));
+        })();
     </script>
 </body>
 </html>
