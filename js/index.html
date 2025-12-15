@@ -291,9 +291,57 @@
         .article-card:hover .article-read-more i {
             transform: translateX(2px);
         }
+
+        .wip-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(22px) saturate(120%);
+            -webkit-backdrop-filter: blur(22px) saturate(120%);
+            pointer-events: all;
+        }
+
+        .wip-overlay__content {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .wip-overlay__gif {
+            width: min(420px, 80vw);
+            height: auto;
+            display: block;
+            opacity: 0.95;
+            filter: contrast(1.05) saturate(1.05);
+        }
+
+        .wip-overlay__text {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            padding: 0.25rem 0.75rem;
+        }
     </style>
 </head>
 <body class="min-h-screen">
+    <div class="wip-overlay" aria-label="Work in progress overlay" role="dialog" aria-modal="true">
+        <div class="wip-overlay__content">
+            <img class="wip-overlay__gif" src="/images/cat-work-in-progress.gif" alt="Work in progress">
+            <div class="wip-overlay__text">Work in Progress</div>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
         <div class="max-w-6xl mx-auto px-6">
