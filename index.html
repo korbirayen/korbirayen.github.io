@@ -483,57 +483,9 @@
         .article-card:hover .article-read-more i {
             transform: translateX(2px);
         }
-
-        .wip-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.001);
-            backdrop-filter: blur(7px) saturate(100%);
-            -webkit-backdrop-filter: blur(22px) saturate(120%);
-            pointer-events: all;
-        }
-
-        .wip-overlay__content {
-            position: relative;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .wip-overlay__gif {
-            width: min(420px, 80vw);
-            height: auto;
-            display: block;
-            opacity: 0.95;
-            filter: contrast(1.05) saturate(1.05);
-        }
-
-        .wip-overlay__text {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            color: #ffffff;
-            font-weight: 800;
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
-            padding: 0.25rem 0.75rem;
-        }
     </style>
 </head>
 <body class="min-h-screen">
-    <div class="wip-overlay" aria-label="Work in progress overlay" role="dialog" aria-modal="true">
-        <div class="wip-overlay__content">
-            <img class="wip-overlay__gif" src="/images/cat-work-in-progress.gif" alt="Work in progress">
-            <div class="wip-overlay__text">Work in Progress</div>
-        </div>
-    </div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
         Skip to content
     </a>
@@ -550,6 +502,7 @@
 
                 <div class="hidden md:flex items-center gap-6">
                     <a href="#work" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Work</a>
+                    <a href="#skills" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Skills</a>
                     <a href="#projects" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Case Studies</a>
                     <a href="#blog" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Writing</a>
                     <a href="#contact" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Contact</a>
@@ -572,6 +525,7 @@
         <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800/40" style="background: rgba(11, 12, 16, 0.7); backdrop-filter: blur(16px);" role="dialog" aria-label="Mobile navigation" aria-modal="false">
             <div class="px-4 pt-3 pb-4 space-y-2">
                 <a href="#work" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Work</a>
+                <a href="#skills" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Skills</a>
                 <a href="#projects" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Case Studies</a>
                 <a href="#blog" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Writing</a>
                 <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Contact</a>
@@ -695,6 +649,174 @@
         </div>
     </section>
 
+    <!-- Skills Showcase -->
+    <section id="skills" class="section-tight">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Skills</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Technical Stack & Expertise</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
+                    My toolkit for turning data into actionable insights.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Technical Skills -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
+                            <i class="fas fa-code text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Technical Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Languages & Tools</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Python</span>
+                                <span class="pill text-xs text-gray-200">SQL</span>
+                                <span class="pill text-xs text-gray-200">R</span>
+                                <span class="pill text-xs text-gray-200">JavaScript</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Platforms & Frameworks</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Power BI</span>
+                                <span class="pill text-xs text-gray-200">TensorFlow</span>
+                                <span class="pill text-xs text-gray-200">scikit-learn</span>
+                                <span class="pill text-xs text-gray-200">pandas</span>
+                                <span class="pill text-xs text-gray-200">Apache Spark</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t" style="border-color: var(--border);">
+                        <h4 class="font-medium mb-3 text-gray-300 text-sm">Proficiency Levels</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-gray-300">Python & SQL</span>
+                                    <span class="text-sm text-gray-400">Expert</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-gray-300">Power BI & Visualization</span>
+                                    <span class="text-sm text-gray-400">Advanced</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm text-gray-300">Machine Learning</span>
+                                    <span class="text-sm text-gray-400">Advanced</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain Expertise -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
+                            <i class="fas fa-brain text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Domain Expertise</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Core Areas</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
+                                    <span class="text-sm text-gray-300">Big Data Analysis & Processing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
+                                    <span class="text-sm text-gray-300">Machine Learning Engineering</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
+                                    <span class="text-sm text-gray-300">Security & Cybersecurity</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
+                                    <span class="text-sm text-gray-300">Data Pipeline Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Specializations</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Fraud Detection</span>
+                                <span class="pill text-xs text-gray-200">Anomaly Detection</span>
+                                <span class="pill text-xs text-gray-200">Predictive Analytics</span>
+                                <span class="pill text-xs text-gray-200">ETL Pipelines</span>
+                                <span class="pill text-xs text-gray-200">Data Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Approach -->
+                <div class="card p-6">
+                    <div class="flex items-center mb-4 gap-3">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
+                            <i class="fas fa-users text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Approach & Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Working Style</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Clear Communication</span>
+                                <span class="pill text-xs text-gray-200">Documentation</span>
+                                <span class="pill text-xs text-gray-200">Iterative Development</span>
+                                <span class="pill text-xs text-gray-200">Quality First</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Problem-Solving</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="pill text-xs text-gray-200">Root Cause Analysis</span>
+                                <span class="pill text-xs text-gray-200">Data-Driven Decisions</span>
+                                <span class="pill text-xs text-gray-200">Pragmatic Solutions</span>
+                                <span class="pill text-xs text-gray-200">Testing & Validation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t" style="border-color: var(--border);">
+                        <h4 class="font-medium mb-3 text-gray-300 text-sm">Values</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="text-center">
+                                <div class="w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-2" style="background: rgba(75,112,245,0.12);">
+                                    <i class="fas fa-lightbulb text-accent text-lg"></i>
+                                </div>
+                                <span class="text-xs text-gray-300">Simplicity</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-2" style="background: rgba(75,112,245,0.12);">
+                                    <i class="fas fa-rocket text-accent text-lg"></i>
+                                </div>
+                                <span class="text-xs text-gray-300">Impact</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Case Studies -->
     <section id="projects" class="section">
         <div class="container">
@@ -712,82 +834,97 @@
                 <article class="card p-7 case-card">
                     <div class="flex items-center justify-between gap-4">
                         <div>
-                            <div class="kicker">Case study 01</div>
-                            <h3 class="mt-2 text-2xl font-semibold">Fraud detection workflow</h3>
+                            <div class="kicker">Project 01</div>
+                            <h3 class="mt-2 text-2xl font-semibold">TruthLense - Fake News Detector</h3>
                         </div>
                         <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-robot text-accent text-xl"></i>
+                            <i class="fas fa-shield-halved text-accent text-xl"></i>
                         </div>
                     </div>
 
-                    <p class="mt-4 text-gray-400">Goal: catch suspicious behavior earlier, without spamming analysts with false positives.</p>
+                    <p class="mt-4 text-gray-400">AI-powered misinformation detection system combining NLP and machine learning for real-time fact-checking.</p>
 
                     <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
-                        <li>Built a labeled dataset from transaction + user activity logs</li>
-                        <li>Engineered features and evaluated baseline vs ML model</li>
-                        <li>Shipped an alert score + simple review dashboard</li>
+                        <li>Built using Python for model training & JavaScript for web interface</li>
+                        <li>Implements NLP techniques for text analysis and credibility scoring</li>
+                        <li>Real-time detection of misleading content patterns</li>
                     </ul>
 
                     <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Result</div>
-                            <div class="font-semibold text-gray-100">-[X]% false positives</div>
+                            <div class="text-xs text-gray-400">Status</div>
+                            <div class="font-semibold text-gray-100">Active Development</div>
                         </div>
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Time</div>
-                            <div class="font-semibold text-gray-100">-[Y] mins / case</div>
+                            <div class="text-xs text-gray-400">Updated</div>
+                            <div class="font-semibold text-gray-100">Nov 2025</div>
                         </div>
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Notes</div>
-                            <div class="font-semibold text-gray-100">Monitoring + QA</div>
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">2 ⭐</div>
                         </div>
                     </div>
 
                     <div class="mt-6 flex flex-wrap gap-2">
                         <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">SQL</span>
-                        <span class="pill text-xs text-gray-200">scikit-learn</span>
+                        <span class="pill text-xs text-gray-200">JavaScript</span>
+                        <span class="pill text-xs text-gray-200">NLP</span>
+                        <span class="pill text-xs text-gray-200">ML</span>
+                    </div>
+                    <div class="mt-4 flex gap-3">
+                        <a href="https://github.com/korbirayen/TruthLense-Model" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2">
+                            <i class="fab fa-github"></i> Model Repo
+                        </a>
+                        <a href="https://github.com/korbirayen/TruthLense" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2">
+                            <i class="fab fa-github"></i> Frontend
+                        </a>
                     </div>
                 </article>
 
                 <article class="card p-7 case-card">
                     <div class="flex items-center justify-between gap-4">
                         <div>
-                            <div class="kicker">Case study 02</div>
-                            <h3 class="mt-2 text-2xl font-semibold">Security monitoring dashboards</h3>
+                            <div class="kicker">Project 02</div>
+                            <h3 class="mt-2 text-2xl font-semibold">MoodMonitor - Sentiment Tracker</h3>
                         </div>
                         <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
-                            <i class="fas fa-shield-halved text-accent text-xl"></i>
+                            <i class="fab fa-twitter text-accent text-xl"></i>
                         </div>
                     </div>
 
-                    <p class="mt-4 text-gray-400">Goal: make security events understandable at a glance and easier to investigate.</p>
+                    <p class="mt-4 text-gray-400">Real-time Twitter (X) sentiment analysis tool for tracking public opinion and emotional trends.</p>
 
                     <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
-                        <li>Defined a small set of KPIs + alert thresholds</li>
-                        <li>Built dashboards with drill-down to raw logs</li>
-                        <li>Added sanity checks to catch broken ingestion</li>
+                        <li>Real-time data collection from Twitter API</li>
+                        <li>Sentiment classification using NLP models</li>
+                        <li>Interactive dashboard for trend visualization</li>
                     </ul>
 
                     <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Result</div>
-                            <div class="font-semibold text-gray-100">-[X] hrs to detect</div>
+                            <div class="text-xs text-gray-400">Type</div>
+                            <div class="font-semibold text-gray-100">Real-time Analytics</div>
                         </div>
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Coverage</div>
-                            <div class="font-semibold text-gray-100">[N] event types</div>
+                            <div class="text-xs text-gray-400">Updated</div>
+                            <div class="font-semibold text-gray-100">Nov 2025</div>
                         </div>
                         <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stack</div>
-                            <div class="font-semibold text-gray-100">Power BI + SQL</div>
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">2 ⭐</div>
                         </div>
                     </div>
 
                     <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Power BI</span>
                         <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Security</span>
+                        <span class="pill text-xs text-gray-200">Twitter API</span>
+                        <span class="pill text-xs text-gray-200">NLP</span>
+                        <span class="pill text-xs text-gray-200">Real-time</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/korbirayen/MoodMonitor" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
                     </div>
                 </article>
             </div>
@@ -805,6 +942,143 @@
                             <span class="pill text-xs text-gray-200">Data modeling</span>
                             <span class="pill text-xs text-gray-200">Automation</span>
                         </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Project 03</div>
+                            <h3 class="mt-2 text-2xl font-semibold">PFE-Helper</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
+                            <i class="fas fa-robot text-accent text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-400">Automated Telegram bot that scrapes PFEBooks.com and notifies Tunisian students about new internship opportunities instantly.</p>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Impact</div>
+                            <div class="font-semibold text-gray-100">Helps students</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">2 ⭐</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">Telegram Bot</span>
+                        <span class="pill text-xs text-gray-200">Web Scraping</span>
+                        <span class="pill text-xs text-gray-200">Automation</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/korbirayen/PFE-Helper" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Project 04</div>
+                            <h3 class="mt-2 text-2xl font-semibold">MovieMind</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
+                            <i class="fas fa-film text-accent text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-400">Netflix-style movie trend analyzer that identifies viewing patterns and predicts popular content trends.</p>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Type</div>
+                            <div class="font-semibold text-gray-100">Trend Analysis</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">2 ⭐</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">Data Analysis</span>
+                        <span class="pill text-xs text-gray-200">Visualization</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/korbirayen/MovieMind" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Project 05</div>
+                            <h3 class="mt-2 text-2xl font-semibold">Flight Delay ML Project</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
+                            <i class="fas fa-plane text-accent text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-400">Machine learning model predicting flight delays using historical data and weather patterns.</p>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Format</div>
+                            <div class="font-semibold text-gray-100">Jupyter Notebook</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">1 ⭐</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">Python</span>
+                        <span class="pill text-xs text-gray-200">Machine Learning</span>
+                        <span class="pill text-xs text-gray-200">Jupyter</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/korbirayen/flight_delay_ML_project" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card p-7 case-card">
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <div class="kicker">Project 06</div>
+                            <h3 class="mt-2 text-2xl font-semibold">NoFap Extension</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
+                            <i class="fas fa-shield text-accent text-xl"></i>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-400">Browser extension for Chrome & Firefox designed to block adult content and support digital wellness.</p>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">License</div>
+                            <div class="font-semibold text-gray-100">MIT</div>
+                        </div>
+                        <div class="case-metric p-4">
+                            <div class="text-xs text-gray-400">Stars</div>
+                            <div class="font-semibold text-gray-100">8 ⭐</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill text-xs text-gray-200">HTML</span>
+                        <span class="pill text-xs text-gray-200">Chrome Extension</span>
+                        <span class="pill text-xs text-gray-200">Firefox Extension</span>
+                    </div>
+                    <div class="mt-4">
+                        <a href="https://github.com/korbirayen/NoFap" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
                     </div>
                 </article>
             </div>
@@ -1002,6 +1276,202 @@ function evaluateAccess(user, resource, context) {
             <p>Transitioning to Zero Trust requires careful planning and phased implementation, but the security benefits justify the investment.</p>
         </div>
     </div>
+
+    <!-- Tools & Technologies -->
+    <section id="tools" class="section-tight">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Tools & Technologies</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">My Tech Stack</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
+                    Technologies and platforms I work with regularly to build data solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Data Analysis -->
+                <div class="card p-6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,112,245,0.14);">
+                        <i class="fas fa-chart-bar text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Data Analysis</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Python (pandas, NumPy)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>SQL (PostgreSQL, MySQL)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>R (dplyr, ggplot2)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Excel / Google Sheets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visualization -->
+                <div class="card p-6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(76,59,207,0.14);">
+                        <i class="fas fa-chart-line text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Visualization</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Power BI</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Tableau</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Matplotlib / Seaborn</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Plotly / Dash</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="card p-6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,112,245,0.14);">
+                        <i class="fas fa-brain text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Machine Learning</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>scikit-learn</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>TensorFlow / Keras</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>XGBoost / LightGBM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Big Data & Cloud -->
+                <div class="card p-6">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(76,59,207,0.14);">
+                        <i class="fas fa-cloud text-accent text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Big Data & Cloud</h3>
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Apache Spark / PySpark</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Hadoop / Hive</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>AWS / Azure / GCP</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check text-accent text-xs"></i>
+                            <span>Docker / Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience Timeline -->
+    <section id="timeline" class="section-tight">
+        <div class="container">
+            <div class="mb-10">
+                <div class="kicker">Background</div>
+                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Education & Experience</h2>
+                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
+                    My journey in data analytics and big data.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline Item 1 -->
+                <div class="relative pl-8 pb-10 border-l-2" style="border-color: var(--border2);">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: linear-gradient(135deg, var(--accent), var(--accent2));"></div>
+                    <div class="card p-6">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-semibold">Data Analytics & Big Data Studies</h3>
+                            <span class="pill text-xs text-gray-200">Current</span>
+                        </div>
+                        <p class="text-gray-400 mb-3">Student specializing in data analytics, big data technologies, and machine learning</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill text-xs text-gray-200">Big Data</span>
+                            <span class="pill text-xs text-gray-200">Analytics</span>
+                            <span class="pill text-xs text-gray-200">Machine Learning</span>
+                            <span class="pill text-xs text-gray-200">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative pl-8 pb-10 border-l-2" style="border-color: var(--border2);">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: var(--accent);"></div>
+                    <div class="card p-6">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-semibold">Data Analysis Projects</h3>
+                            <span class="text-sm text-gray-400">2023 - Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-3">Building practical data solutions with focus on fraud detection, security monitoring, and automation</p>
+                        <ul class="space-y-2 text-sm text-gray-400">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
+                                <span>Developed ML models for fraud detection with reduced false positives</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
+                                <span>Created security monitoring dashboards with Power BI</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
+                                <span>Implemented data quality checks and automated validation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative pl-8">
+                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: var(--accent2);"></div>
+                    <div class="card p-6">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                            <h3 class="text-xl font-semibold">Continuous Learning</h3>
+                            <span class="text-sm text-gray-400">Ongoing</span>
+                        </div>
+                        <p class="text-gray-400 mb-3">Staying current with emerging technologies and best practices</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill text-xs text-gray-200">MLOps</span>
+                            <span class="pill text-xs text-gray-200">Cloud Computing</span>
+                            <span class="pill text-xs text-gray-200">Data Engineering</span>
+                            <span class="pill text-xs text-gray-200">Cybersecurity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">

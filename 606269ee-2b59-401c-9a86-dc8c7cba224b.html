@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Portfolio Design Specification</title>
+    <meta name="description" content="Design specification for modern technical professional portfolio">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#2563eb",
+                        secondary: "#7c3aed",
+                        accent: "#059669",
+                        dark: "#1e293b",
+                        light: "#f8fafc"
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="min-h-screen bg-light font-sans text-dark">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg"></div>
+                    <span class="text-xl font-semibold">Portfolio</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-600 hover:text-primary transition-colors">Home</a>
+                    <a href="#skills" class="text-gray-600 hover:text-primary transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-primary transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Design Specification Content -->
+        <section class="mb-12">
+            <h1 class="text-4xl font-bold mb-6 text-dark">Technical Portfolio Design Specification</h1>
+            <p class="text-lg text-gray-600 mb-8">Modern, scannable portfolio for Big Data Analysis, Machine Learning, AI Engineering, and n8n workflow automation professionals.</p>
+        </section>
+
+        <!-- Site Structure -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-2">1. Site Structure & Information Architecture</h2>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h3 class="text-xl font-semibold mb-4 text-primary">Navigation Structure</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium mb-2">Desktop Navigation</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                                <span>Home / Hero</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                                <span>Skills Showcase</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                                <span>Project Portfolio</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                                <span>Contact & CTA</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2">Mobile Navigation</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                <span>Hamburger menu with all sections</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                <span>Sticky navigation bar</span>
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                <span>Smooth scroll navigation</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-primary">Page Sections Flow</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white rounded-lg px-3 py-1 mr-4 font-mono">01</div>
+                        <div>
+                            <h4 class="font-medium mb-1">Hero / Introduction</h4>
+                            <p class="text-gray-600">Professional headline, brief bio, and primary value proposition. Clear visual hierarchy with CTA buttons.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white rounded-lg px-3 py-1 mr-4 font-mono">02</div>
+                        <div>
+                            <h4 class="font-medium mb-1">Skills Showcase</h4>
+                            <p class="text-gray-600">Categorized technical and soft skills with visual proficiency indicators.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white rounded-lg px-3 py-1 mr-4 font-mono">03</div>
+                        <div>
+                            <h4 class="font-medium mb-1">Project Portfolio</h4>
+                            <p class="text-gray-600">4-6 featured projects with metrics, tech stack, and outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-primary text-white rounded-lg px-3 py-1 mr-4 font-mono">04</div>
+                        <div>
+                            <h4 class="font-medium mb-1">Contact & CTA</h4>
+                            <p class="text-gray-600">Contact form, social links, and clear call-to-action.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Showcase Specification -->
+        <section class="mb-12" id="skills-spec">
+            <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-2">2. Skills Showcase Design</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Technical Skills -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-code text-primary text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Technical Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Programming & Frameworks</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PyTorch</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Tools & Platforms</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">BigQuery</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">n8n</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Apache Spark</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t">
+                        <h4 class="font-medium mb-3 text-gray-700">Proficiency Indicators</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm">Python</span>
+                                    <span class="text-sm text-gray-600">Expert</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm">n8n</span>
+                                    <span class="text-sm text-gray-600">Advanced</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain Expertise -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-brain text-secondary text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Domain Expertise</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Core Areas</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                    <span>Big Data Analysis & Processing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                    <span>Machine Learning Model Development</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                    <span>AI Engineering & Deployment</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                                    <span>Workflow Automation (n8n)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Specializations</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Predictive Analytics</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Data Pipeline Design</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MLOps</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">API Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-comments text-amber-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Soft Skills</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Communication & Collaboration</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Technical Communication</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Stakeholder Management</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Team Leadership</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Documentation</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2 text-gray-700">Problem-Solving</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Analytical Thinking</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Creative Solutions</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">System Design</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Debugging</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t">
+                        <h4 class="font-medium mb-3 text-gray-700">Visual Representation</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-2">
+                                    <i class="fas fa-lightbulb text-amber-600 text-xl"></i>
+                                </div>
+                                <span class="text-sm">Innovation</span>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto bg-amber-100 rounded-full flex items-center justify-center mb-2">
+                                    <i class="fas fa-handshake text-amber-600 text-xl"></i>
+                                </div>
+                                <span class="text-sm">Collaboration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Portfolio Specification -->
+        <section class="mb-12" id="projects-spec">
+            <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-2">3. Project Portfolio Structure</h2>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h3 class="text-xl font-semibold mb-4 text-primary">Project Card Design Pattern</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project Card Example -->
+                    <div class="border border-gray-200 rounded-lg p-5 hover:shadow-lg transition-shadow">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="font-bold text-lg">Project Title</h4>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">One-line description of the project highlighting the main objective and value.</p>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-sm text-gray-700 mb-2">Tech Stack</h5>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">Python</span>
+                                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded">TensorFlow</span>
+                                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded">BigQuery</span>
+                                <span class="bg-yellow-50 text-yellow-700 text-xs px-2 py-1 rounded">n8n</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h5 class="font-medium text-sm text-gray-700 mb-2">Metrics & Outcomes</h5>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-line text-accent mr-2 text-xs"></i>
+                                    <span>Improved efficiency by X%</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-bolt text-accent mr-2 text-xs"></i>
+                                    <span>Reduced processing time by Y%</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-dollar-sign text-accent mr-2 text-xs"></i>
+                                    <span>Saved $Z in operational costs</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex space-x-3">
+                            <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-github mr-2"></i>Code
+                            </button>
+                            <button class="flex-1 border border-primary text-primary py-2 rounded-lg text-sm hover:bg-blue-50 transition-colors">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-primary">4-6 Representative Projects</h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-medium">Project</th>
+                                <th class="text-left py-3 px-4 font-medium">Description</th>
+                                <th class="text-left py-3 px-4 font-medium">Key Tech</th>
+                                <th class="text-left py-3 px-4 font-medium">Metrics</th>
+                                <th class="text-left py-3 px-4 font-medium">Links</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4 font-medium">Predictive Analytics Platform</td>
+                                <td class="py-3 px-4 text-gray-600">ML platform for forecasting business metrics</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">Python</span>
+                                        <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded">TensorFlow</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-sm text-gray-600">95% accuracy, 40% faster predictions</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary hover:text-blue-700">
+                                            <i class="fab fa-github"></i>
+                                        </button>
+                                        <button class="text-accent hover:text-green-700">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4 font-medium">Data Pipeline Automation</td>
+                                <td class="py-3 px-4 text-gray-600">Automated ETL workflows using n8n</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded">n8n</span>
+                                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">Python</span>
+                                        <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded">BigQuery</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Reduced manual work by 80%</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary hover:text-blue-700">
+                                            <i class="fab fa-github"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3 px-4 font-medium">AI Recommendation System</td>
+                                <td class="py-3 px-4 text-gray-600">Personalized content recommendations</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">PyTorch</span>
+                                        <span class="bg-red-50 text-red-700 text-xs px-2 py-1 rounded">FastAPI</span>
+                                        <span class="bg-yellow-50 text-yellow-700 text-xs px-2 py-1 rounded">Docker</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Increased engagement by 35%</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary hover:text-blue-700">
+                                            <i class="fab fa-github"></i>
+                                        </button>
+                                        <button class="text-accent hover:text-green-700">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-4 font-medium">Real-time Analytics Dashboard</td>
+                                <td class="py-3 px-4 text-gray-600">Dashboard for monitoring business KPIs</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex flex-wrap gap-1">
+                                        <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded">React</span>
+                                        <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded">Node.js</span>
+                                        <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded">Apache Spark</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Real-time data processing</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex space-x-2">
+                                        <button class="text-primary hover:text-blue-700">
+                                            <i class="fab fa-github"></i>
+                                        </button>
+                                        <button class="text-accent hover:text-green-700">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & CTA Specification -->
+        <section class="mb-12" id="contact-spec">
+            <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-2">4. Contact & Call-to-Action Design</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Contact Form Design</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project inquiry">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent h-32" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Social Links & CTA -->
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Social Links & CTA</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3 text-gray-700">Primary CTA Text</h4>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-lg font-medium text-primary mb-2">"Let's Build Something Amazing Together"</p>
+                            <p class="text-gray-600 text-sm">Clear, action-oriented headline that encourages engagement</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-lg font-medium text-accent mb-2">"Ready to Automate Your Data Workflows?"</p>
+                            <p class="text-gray-600 text-sm">Problem-focused headline addressing specific pain points</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-medium mb-3 text-gray-700">Social Media Links</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition-colors">
+                                <i class="fab fa-linkedin text-blue-600 text-xl"></i>
+                                <span class="font-medium">LinkedIn</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition-colors">
+                                <i class="fab fa-github text-gray-800 text-xl"></i>
+                                <span class="font-medium">GitHub</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition-colors">
+                                <i class="fab fa-twitter text-blue-400 text-xl"></i>
+                                <span class="font-medium">Twitter</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition-colors">
+                                <i class="fas fa-envelope text-red-500 text-xl"></i>
+                                <span class="font-medium">Email</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t">
+                        <h4 class="font-medium mb-3 text-gray-700">Alternative Contact Methods</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-calendar-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Schedule a Call</p>
+                                    <p class="text-sm text-gray-600">Book a 30-minute consultation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-accent bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-file-pdf text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Download Resume</p>
+                                    <p class="text-sm text-gray-600">PDF format, updated regularly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Design Guidelines -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-2">5. Visual Design Guidelines</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Color Palette</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-lg mr-4"></div>
+                            <div>
+                                <p class="font-medium">Primary Blue</p>
+                                <p class="text-sm text-gray-600">#2563eb - Buttons, links, highlights</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-secondary rounded-lg mr-4"></div>
+                            <div>
+                                <p class="font-medium">Secondary Purple</p>
+                                <p class="text-sm text-gray-600">#7c3aed - Accents, special elements</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-lg mr-4"></div>
+                            <div>
+                                <p class="font-medium">Accent Green</p>
+                                <p class="text-sm text-gray-600">#059669 - Success, metrics, positive indicators</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">Typography</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-2xl font-bold mb-1">Inter Bold</p>
+                            <p class="text-sm text-gray-600">Headings and emphasis</p>
+                        </div>
+                        <div>
+                            <p class="text-lg font-medium mb-1">Inter Medium</p>
+                            <p class="text-sm text-gray-600">Subheadings and labels</p>
+                        </div>
+                        <div>
+                            <p class="text-base font-normal mb-1">Inter Regular</p>
+                            <p class="text-sm text-gray-600">Body text and descriptions</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-sm mb-1">Fira Code</p>
+                            <p class="text-sm text-gray-600">Code snippets and technical terms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-white rounded-lg"></div>
+                        <span class="text-xl font-semibold">Portfolio</span>
+                    </div>
+                    <p class="text-gray-400">Technical portfolio design specification for data & AI professionals</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2024 Technical Portfolio Design Specification. All rights reserved.</p>
+                <p class="mt-2">This is a design specification document - replace placeholders with actual content.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll("a[href^=\"#\"]").forEach(anchor => {
+                anchor.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href");
+                    if (targetId === "#") return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector("button.md\\:hidden");
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener("click", function() {
+                    const navLinks = document.querySelector(".hidden.md\\:flex");
+                    if (navLinks) {
+                        navLinks.classList.toggle("hidden");
+                        navLinks.classList.toggle("flex");
+                        navLinks.classList.toggle("flex-col");
+                        navLinks.classList.toggle("absolute");
+                        navLinks.classList.toggle("top-16");
+                        navLinks.classList.toggle("right-4");
+                        navLinks.classList.toggle("bg-white");
+                        navLinks.classList.toggle("shadow-lg");
+                        navLinks.classList.toggle("rounded-lg");
+                        navLinks.classList.toggle("p-4");
+                        navLinks.classList.toggle("space-y-4");
+                    }
+                });
+            }
+
+            // Form submission handling
+            const contactForm = document.querySelector("form");
+            if (contactForm) {
+                contactForm.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    alert("Form submission would be handled here in production.");
+                });
+            }
+
+            // Project card interactions
+            document.querySelectorAll(".project-card button").forEach(button => {
+                button.addEventListener("click", function() {
+                    const action = this.textContent.trim().toLowerCase();
+                    alert(`"${action}" action would navigate to project details in production.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
