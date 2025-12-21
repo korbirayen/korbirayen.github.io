@@ -141,7 +141,7 @@ export function NewspaperCV() {
                   </div>
                   <div className="mt-4 pt-3 border-t border-dashed border-[#999] flex flex-col xs:flex-row gap-2">
                     <a
-                      href="./RayenKorbi.pdf"
+                      href="/RayenKorbi.pdf"
                       target="_blank"
                       className="flex items-center justify-center gap-1 text-xs font-serif bg-[#2c2c2c] text-[#f5f1e8] px-3 py-2 sm:py-1.5 hover:bg-[#1a1a1a] transition-colors"
                       rel="noreferrer"
@@ -150,7 +150,7 @@ export function NewspaperCV() {
                       View CV
                     </a>
                     <a
-                      href="./RayenKorbi.pdf"
+                      href="/RayenKorbi.pdf"
                       download
                       className="flex items-center justify-center gap-1 text-xs font-serif border border-[#2c2c2c] text-[#2c2c2c] px-3 py-2 sm:py-1.5 hover:bg-[#2c2c2c] hover:text-[#f5f1e8] transition-colors"
                     >
