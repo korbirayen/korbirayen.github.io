@@ -1,1834 +1,282 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rayen Korbi | Data, ML & Security</title>
-        <meta name="description" content="Rayen Korbi — data analytics & big data student portfolio. Case studies in analysis, dashboards, and practical ML, with a security mindset.">
-        <link rel="canonical" href="https://korbirayen.github.io/">
-        <meta name="robots" content="index,follow">
-        <meta name="theme-color" content="#0B0C10">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rayen Korbi</title>
+    <meta name="description" content="A simple newspaper-style portfolio." />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <div class="masthead-top">
+          <div>Edition: December 21, 2025</div>
+          <div>Independent • Personal • Portfolio</div>
+        </div>
+        <h1 class="title">Rayen Korbi</h1>
+        <p class="tagline">Curriculum Vitae</p>
 
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Rayen Korbi | Data Analytics Portfolio">
-        <meta property="og:description" content="Case studies in analysis, dashboards, and practical ML (with a security mindset).">
-        <meta property="og:url" content="https://korbirayen.github.io/">
-        <meta property="og:image" content="https://korbirayen.github.io/images/logo.png">
-
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Rayen Korbi | Data Analytics Portfolio">
-        <meta name="twitter:description" content="Case studies in analysis, dashboards, and practical ML.">
-        <meta name="twitter:image" content="https://korbirayen.github.io/images/logo.png">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-        <script type="application/ld+json">
-                {
-                    "@context": "https://schema.org",
-                    "@type": "Person",
-                    "name": "Rayen Korbi",
-                    "url": "https://korbirayen.github.io/",
-                    "image": "https://korbirayen.github.io/images/aina.png",
-                    "jobTitle": "Data analytics / big data student",
-                    "sameAs": [
-                        "https://github.com/korbirayen",
-                        "https://www.linkedin.com/in/rayen-korbi-4ab072240/",
-                        "https://x.com/k0_ryn"
-                    ]
-                }
-        </script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        accent: '#4B70F5',
-                        accent2: '#4C3BCF',
-                        dark: '#1A1A1B',
-                        darker: '#121213',
-                        light: '#E5E7EB',
-                        gray: '#6B7280'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-        :root {
-            --accent: #4B70F5;
-            --accent2: #4C3BCF;
-            --bg: #0B0C10;
-            --panel: rgba(18, 18, 19, 0.78);
-            --panel2: rgba(18, 18, 19, 0.52);
-            --text: #E5E7EB;
-            --muted: rgba(229, 231, 235, 0.72);
-            --border: rgba(255, 255, 255, 0.10);
-            --border2: rgba(255, 255, 255, 0.06);
-            --shadow: 0 18px 70px rgba(0, 0, 0, 0.62);
-            --shadow2: 0 10px 40px rgba(0, 0, 0, 0.45);
-            --radius: 18px;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                radial-gradient(1200px 680px at 14% 0%, rgba(75, 112, 245, 0.14), transparent 60%),
-                radial-gradient(980px 620px at 86% 10%, rgba(76, 59, 207, 0.12), transparent 60%),
-                var(--bg);
-            color: var(--text);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            position: relative;
-            isolation: isolate;
-        }
-
-        ::selection {
-            background: rgba(75, 112, 245, 0.35);
-            color: var(--text);
-        }
-
-        :focus-visible {
-            outline: 2px solid rgba(75, 112, 245, 0.55);
-            outline-offset: 3px;
-            border-radius: 10px;
-        }
-        
-        .card {
-            transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
-            background: rgba(18, 18, 19, 0.70);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(12px);
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.16);
-            box-shadow: var(--shadow2);
-        }
-
-        .btn {
-            position: relative;
-            overflow: hidden;
-            transform: translateZ(0);
-            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-primary {
-            box-shadow: 0 10px 34px rgba(75, 112, 245, 0.14);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 14px 48px rgba(75, 112, 245, 0.22);
-        }
-
-        .btn-secondary {
-            background: rgba(18, 18, 19, 0.58);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            border-color: rgba(75, 112, 245, 0.45);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .active-nav::after {
-            width: 100%;
-        }
-
-        .nav-shell {
-            position: relative;
-            background: rgba(11, 12, 16, 0.55);
-            backdrop-filter: blur(14px);
-        }
-
-        .nav-shell::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -1px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-            opacity: 0.8;
-            pointer-events: none;
-        }
-        
-        input, textarea {
-            background-color: rgba(18, 18, 19, 0.72) !important;
-            border-color: rgba(255, 255, 255, 0.10) !important;
-            color: var(--text) !important;
-        }
-        
-        input:focus, textarea:focus {
-            border-color: rgba(75, 112, 245, 0.75) !important;
-            outline: none;
-            box-shadow: 0 0 0 6px rgba(75, 112, 245, 0.12);
-        }
-        
-        .logo-img {
-            height: 40px;
-            filter: brightness(0) saturate(100%) invert(38%) sepia(99%) saturate(747%) hue-rotate(203deg) brightness(96%) contrast(91%);
-        }
-
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-        }
-
-        .section {
-            padding: 5rem 1.5rem;
-        }
-
-        .section-tight {
-            padding: 3.75rem 1.5rem;
-        }
-
-        .kicker {
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            color: rgba(229, 231, 235, 0.65);
-        }
-
-        .grad-text {
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 0.75rem;
-            border-radius: 999px;
-            border: 1px solid var(--border2);
-            background: rgba(18, 18, 19, 0.48);
-            backdrop-filter: blur(10px);
-        }
-
-        .case-card {
-            border-radius: calc(var(--radius) + 4px);
-        }
-
-        .case-metric {
-            border: 1px dashed rgba(255, 255, 255, 0.14);
-            background: rgba(18, 18, 19, 0.40);
-            border-radius: 14px;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(14px);
-            transition: opacity 520ms ease, transform 520ms ease;
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            body { scroll-behavior: auto; }
-            .card,
-            .btn,
-            .reveal { transition: none !important; }
-            .card:hover { transform: none; }
-            .btn:hover { transform: none; }
-        }
-
-        /* Writing modal styles (keep functionality, nicer typography) */
-        .blog-post-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        .blog-post-content h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 1.5rem 0 1rem;
-            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .blog-post-content p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .blog-post-content ul, 
-        .blog-post-content ol {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        .blog-post-content li {
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-post-content pre {
-            background-color: #121213;
-            border-radius: 6px;
-            padding: 1rem;
-            overflow-x: auto;
-            margin: 1.5rem 0;
-            border-left: 3px solid #4B70F5;
-        }
-
-        .blog-post-content code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #121213;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            color: #4B70F5;
-        }
-
-        /* Modal styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-container {
-            background-color: rgba(18, 18, 19, 0.88);
-            border-radius: 12px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(18px);
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-container {
-            transform: translateY(0);
-        }
-
-        .modal-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-            position: sticky;
-            top: 0;
-            background-color: rgba(18, 18, 19, 0.92);
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            background: linear-gradient(90deg, #4B70F5, #4C3BCF);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: #6B7280;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        .modal-close:hover {
-            color: #4B70F5;
-        }
-
-        .modal-content {
-            padding: 1.5rem;
-        }
-
-        /* All articles modal styles */
-        .all-articles-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .article-card {
-            display: flex;
-            gap: 1.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-            background-color: #1A1A1B;
-            transition: all 0.3s ease;
-            border: 1px solid #2D2D2E;
-        }
-
-        .article-card:hover {
-            border-color: #4B70F5;
-            transform: translateX(4px);
-        }
-
-        .article-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 6px;
-            background-color: #4B70F5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .article-image i {
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        .article-info {
-            flex: 1;
-        }
-
-        .article-date {
-            font-size: 0.875rem;
-            color: #6B7280;
-            margin-bottom: 0.5rem;
-        }
-
-        .article-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .article-excerpt {
-            font-size: 0.9375rem;
-            color: #9CA3AF;
-            margin-bottom: 0.75rem;
-            line-height: 1.5;
-        }
-
-        .article-read-more {
-            color: #4B70F5;
-            font-size: 0.875rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .article-read-more i {
-            font-size: 0.75rem;
-            transition: transform 0.2s ease;
-        }
-
-        .article-card:hover .article-read-more i {
-            transform: translateX(2px);
-        }
-    </style>
-</head>
-<body class="min-h-screen">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded-md">
-        Skip to content
-    </a>
-
-    <header>
-    <!-- Navigation -->
-    <nav class="nav-shell fixed w-full z-50 border-b border-gray-800/40" aria-label="Primary">
-        <div class="container px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="#home" class="flex items-center gap-3">
-                    <img src="/images/logo.png" alt="Logo" class="logo-img">
-                    <span class="hidden sm:inline text-sm text-gray-300 tracking-wide">Rayen Korbi</span>
-                </a>
-
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="#work" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Work</a>
-                    <a href="#skills" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Skills</a>
-                    <a href="#projects" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Case Studies</a>
-                    <a href="#blog" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Writing</a>
-                    <a href="#contact" class="nav-link text-light/90 hover:text-light px-2 py-2 text-sm font-medium">Contact</a>
-                    <a href="#contact" class="btn btn-secondary text-white px-4 py-2 rounded-md text-sm font-semibold">
-                        Reach out
-                    </a>
-                </div>
-
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-light hover:text-accent focus:outline-none" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+        <div class="info-strip" aria-label="Contact strip">
+          <div><strong>Email:</strong> <a href="mailto:contact.rayenkorbi@gmail.com">contact.rayenkorbi@gmail.com</a></div>
+          <div><strong>Phone:</strong> (+216) 50243581</div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/korbirayen" target="_blank" rel="noreferrer">github.com/korbirayen</a></div>
+          <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/rayen-k-4ab072240/" target="_blank" rel="noreferrer">rayen-k-4ab072240</a></div>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800/40" style="background: rgba(11, 12, 16, 0.7); backdrop-filter: blur(16px);" role="dialog" aria-label="Mobile navigation" aria-modal="false">
-            <div class="px-4 pt-3 pb-4 space-y-2">
-                <a href="#work" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Work</a>
-                <a href="#skills" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Skills</a>
-                <a href="#projects" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Case Studies</a>
-                <a href="#blog" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Writing</a>
-                <a href="#contact" class="block px-3 py-2 rounded text-sm font-medium text-light hover:bg-gray-800/40">Contact</a>
-                <a href="#contact" class="block px-3 py-2 rounded text-sm font-semibold text-white" style="background: rgba(18, 18, 19, 0.6); border: 1px solid rgba(255,255,255,0.14);">Reach out</a>
-            </div>
+        <div class="actions" role="group" aria-label="Primary actions">
+          <button class="btn" type="button" id="openCv">View CV</button>
+          <a class="btn btn-secondary" href="./RayenKorbi.pdf" target="_blank" rel="noreferrer">Download CV</a>
         </div>
-    </nav>
-    </header>
 
-    <main id="main-content">
+        <nav class="nav" aria-label="Sections">
+          <a href="#summary">Summary</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#languages">Languages</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-    <!-- Hero -->
-    <section id="home" class="section pt-28 md:pt-32">
-        <div class="container">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                <div class="lg:col-span-7">
-                    <div class="kicker">Rayen Korbi • Tunis, Tunisia</div>
+      <main class="grid" id="summary">
+        <article class="panel">
+          <p class="kicker">Summary</p>
+          <h2>Big Data & Data Analytics student</h2>
+          <p class="byline">Rayen Korbi • Tunis, Tunisia</p>
 
-                    <h1 class="mt-4 text-4xl md:text-6xl font-bold leading-tight">
-                        Data work that’s <span class="grad-text">useful</span> on Monday.
-                    </h1>
-                    <p class="mt-5 text-lg md:text-xl" style="color: var(--muted); max-width: 46ch;">
-                        I’m a data-focused builder. I care about clean metrics, fast iteration, and shipping dashboards/analyses people actually use.
-                    </p>
+          <p class="lede">
+            Big Data & Data Analytics student with hands-on experience in Python, data processing, and machine learning.
+            Builder of real AI and automation projects, comfortable with reinforcement learning and n8n workflows.
+            Looking for a final-year internship (PFE) in Big Data / AI to apply my skills to real datasets and build scalable models.
+          </p>
 
-                    <div class="mt-5 text-sm text-gray-400" style="max-width: 62ch;">
-                        Lately: SQL + Python for analysis, Power BI for reporting, and a security mindset when data gets sensitive.
-                    </div>
+          <hr class="rule" />
 
-                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
-                        <a href="#projects" class="btn btn-primary bg-gradient-to-r from-accent to-accent2 text-white px-6 py-3 rounded-lg font-semibold">
-                            See case studies
-                        </a>
-                        <a href="#contact" class="btn btn-secondary text-light px-6 py-3 rounded-lg font-semibold">
-                            Contact
-                        </a>
-                        <a href="https://github.com/korbirayen" class="btn btn-secondary text-light px-6 py-3 rounded-lg font-semibold" target="_blank" rel="noreferrer">
-                            GitHub
-                        </a>
-                    </div>
+          <section class="cv-section" aria-labelledby="experience">
+            <h3 id="experience">Experience</h3>
 
-                    <div class="mt-10 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">SQL</span>
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Power BI</span>
-                        <span class="pill text-xs text-gray-200">Security</span>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5">
-                    <div class="card p-6 case-card">
-                        <div class="flex items-center gap-4">
-                            <div class="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/10">
-                                <img src="/images/aina.png" alt="Rayen Korbi" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <div class="text-sm" style="color: var(--muted);">Hi — I’m Rayen.</div>
-                                <div class="text-lg font-semibold text-white">Data analysis + practical ML</div>
-                                <div class="text-sm text-gray-400">I like simple solutions that stick.</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-6 grid grid-cols-2 gap-3">
-                            <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" target="_blank" rel="noreferrer" class="btn btn-secondary w-full px-4 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-                                <i class="fab fa-linkedin-in"></i> LinkedIn
-                            </a>
-                            <a href="https://x.com/k0_ryn" target="_blank" rel="noreferrer" class="btn btn-secondary w-full px-4 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2">
-                                <i class="fab fa-twitter"></i> X
-                            </a>
-                        </div>
-
-                        <div class="mt-6">
-                            <div class="kicker">What you’ll get</div>
-                            <div class="mt-3 flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Clean KPIs</span>
-                                <span class="pill text-xs text-gray-200">Dashboards</span>
-                                <span class="pill text-xs text-gray-200">Automation</span>
-                                <span class="pill text-xs text-gray-200">Documentation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="entry">
+              <div class="entry__title">Video editing</div>
+              <div class="entry__meta">03/2025 – 11/2025</div>
+              <ul class="meta-list">
+                <li>Delivered high-quality multimedia projects while meeting tight deadlines.</li>
+              </ul>
             </div>
+
+            <div class="entry">
+              <div class="entry__title">Internship — predictive analytics & modeling</div>
+              <div class="entry__meta">06/2025 – 07/2025</div>
+              <ul class="meta-list">
+                <li>Built an end-to-end predictive modeling project to estimate and optimize public payroll from 2024 to 2030.</li>
+                <li>Implemented a full pipeline: data ingestion, cleaning, feature engineering, model training, and forecast evaluation.</li>
+                <li>Designed a web dashboard as a decision-support tool for “what-if” forecasting scenarios.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cv-section" aria-labelledby="projects">
+            <h3 id="projects">Projects</h3>
+
+            <div class="entry">
+              <div class="entry__title">MovieMind — Netflix-style movie trend analyzer</div>
+              <ul class="meta-list">
+                <li>Built a Netflix-style movie recommender in Python (Pandas, NumPy, Scikit-learn), from data preparation to model training and evaluation.</li>
+                <li>Created a data processing pipeline (cleaning, feature extraction, filtering) to analyze viewing trends and generate personalized recommendations.</li>
+                <li>Improved recommendation relevance by testing multiple algorithms and comparing results using similarity and accuracy metrics.</li>
+              </ul>
+            </div>
+
+            <div class="entry">
+              <div class="entry__title">Axon — locally hosted private centralized LLM</div>
+              <div class="entry__meta">03/2025 – present</div>
+              <ul class="meta-list">
+                <li>Processes sensitive data fully offline using a locally hosted LLM, reducing external security risks and cloud data leakage.</li>
+                <li>Cuts research time by enabling natural-language querying and instant summarization.</li>
+                <li>Turns scattered files into a searchable local knowledge base to retrieve and reuse historical information quickly.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="cv-section" aria-labelledby="education">
+            <h3 id="education">Education</h3>
+
+            <div class="entry">
+              <div class="entry__title">Bachelor’s in Big Data & Data Analytics</div>
+              <div class="entry__meta">09/2023 – present</div>
+              <div class="entry__sub">Ecole Centrale Supérieure Privée d’Informatique et de Télécommunications</div>
+              <ul class="meta-list">
+                <li>Delivered practical projects using Python, SQL, and data analytics tools, demonstrating strong technical foundations.</li>
+                <li>Website: <a href="https://www.universitecentrale.net/" target="_blank" rel="noreferrer">universitecentrale.net</a></li>
+              </ul>
+            </div>
+
+            <div class="entry">
+              <div class="entry__title">High School Diploma — Computer Science</div>
+              <div class="entry__meta">09/2022 – 07/2023</div>
+              <div class="entry__sub">Lycée Hrairia 2</div>
+              <ul class="meta-list">
+                <li>Completed school projects using programming languages such as Python and PHP.</li>
+              </ul>
+            </div>
+          </section>
+        </article>
+
+        <aside class="panel" aria-label="Sidebar">
+          <p class="kicker">Briefs</p>
+          <h2>In short</h2>
+          <p class="small">
+            A quick scan: skills, links, and contact.
+          </p>
+
+          <hr class="rule" />
+
+          <h3>Profile</h3>
+          <ul class="meta-list">
+            <li><strong>Address:</strong> Agba, Tunis, Tunisia</li>
+            <li><strong>Place of birth:</strong> Tunis, Tunisia</li>
+          </ul>
+
+          <hr class="rule" />
+
+          <h3 id="skills">Skills</h3>
+          <div class="skill-block">
+            <div class="skill-title">Data Visualization</div>
+            <div class="skill-items">Tableau / Power BI • Matplotlib / Seaborn</div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-title">Python</div>
+            <div class="skill-items">Automation & scripting • NLP • OpenCV • Pandas/NumPy</div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-title">Predictive Modeling</div>
+            <div class="skill-items">Supervised / unsupervised • Evaluation • LLMs • AI agents</div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-title">Automation</div>
+            <div class="skill-items">Power Automate • Robot Framework • n8n</div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-title">Big Data</div>
+            <div class="skill-items">Hadoop • Spark • Tableau • Power BI</div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-title">Tools</div>
+            <div class="skill-items">Microsoft 365 Suite • Notion</div>
+          </div>
+
+          <hr class="rule" />
+
+          <h3 id="contact">Contact</h3>
+          <ul class="meta-list">
+            <li>Email: <a href="mailto:contact.rayenkorbi@gmail.com">contact.rayenkorbi@gmail.com</a></li>
+            <li>Phone: (+216) 50243581</li>
+            <li>GitHub: <a href="https://github.com/korbirayen" target="_blank" rel="noreferrer">@korbirayen</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/rayen-k-4ab072240/" target="_blank" rel="noreferrer">rayen-k-4ab072240</a></li>
+          </ul>
+        </aside>
+      </main>
+
+      <section class="grid grid--two" aria-label="Additional sections">
+        <section class="panel" id="certifications" aria-label="Certifications">
+          <p class="kicker">Certifications</p>
+          <h2>Certifications</h2>
+          <ul class="meta-list">
+            <li><strong>freeCodeCamp</strong> (2024) — Data Analysis</li>
+            <li><strong>AWS</strong> (2025) — Cloud Foundations</li>
+            <li><strong>The Hashgraph Association</strong> (2025) — Web 3</li>
+            <li><strong>Coursera</strong> (2024) — Google Cybersecurity</li>
+            <li><strong>AIESEC</strong> (2025) — Entrepreneurship</li>
+          </ul>
+        </section>
+
+        <section class="panel" id="languages" aria-label="Languages">
+          <p class="kicker">Languages</p>
+          <h2>Language skills</h2>
+          <ul class="meta-list">
+            <li><strong>Native language:</strong> Arabic</li>
+          </ul>
+          <div class="table-wrap" role="region" aria-label="Language levels">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Language</th>
+                  <th>Understanding</th>
+                  <th>Speaking</th>
+                  <th>Writing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>English</td>
+                  <td>C1</td>
+                  <td>B1 / C1</td>
+                  <td>B1</td>
+                </tr>
+                <tr>
+                  <td>French</td>
+                  <td>B1</td>
+                  <td>B1</td>
+                  <td>B1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">
+            Levels: A1/A2 (basic), B1/B2 (independent), C1/C2 (proficient).
+          </p>
+        </section>
+      </section>
+
+      <dialog class="cv-dialog" id="cvDialog" aria-label="CV viewer">
+        <div class="cv-dialog__top">
+          <div class="cv-dialog__title">RayenKorbi.pdf</div>
+          <button class="btn btn-secondary" type="button" id="closeCv">Close</button>
         </div>
-    </section>
-
-    <!-- Work / Value -->
-    <section id="work" class="section-tight">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Work</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">What I’m good at</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
-                    Defining metrics, digging for root causes, and building reporting that stays correct after the next schema change.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="card p-6">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
-                        <i class="fas fa-magnifying-glass-chart text-accent"></i>
-                    </div>
-                    <h3 class="mt-4 text-xl font-semibold">Analysis</h3>
-                    <p class="mt-2 text-gray-400">Cohorts, funnels, anomaly checks, and “what changed?” analysis without hand-wavy conclusions.</p>
-                </div>
-                <div class="card p-6">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.12);">
-                        <i class="fas fa-gauge-high text-accent"></i>
-                    </div>
-                    <h3 class="mt-4 text-xl font-semibold">Reporting</h3>
-                    <p class="mt-2 text-gray-400">Power BI dashboards with clear KPI definitions, validation checks, and sane drill-downs.</p>
-                </div>
-                <div class="card p-6">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
-                        <i class="fas fa-gear text-accent"></i>
-                    </div>
-                    <h3 class="mt-4 text-xl font-semibold">Automation</h3>
-                    <p class="mt-2 text-gray-400">Small scripts and checks that save hours each week (and stop bad data from shipping).</p>
-                </div>
-            </div>
+        <div class="cv-frame" role="document" aria-label="CV PDF">
+          <iframe class="cv-iframe" src="./RayenKorbi.pdf" title="CV PDF" loading="lazy"></iframe>
         </div>
-    </section>
-
-    <!-- Skills Showcase -->
-    <section id="skills" class="section-tight">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Skills</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Technical Stack & Expertise</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
-                    My toolkit for turning data into actionable insights.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Technical Skills -->
-                <div class="card p-6">
-                    <div class="flex items-center mb-4 gap-3">
-                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-code text-accent text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Technical Skills</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Languages & Tools</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Python</span>
-                                <span class="pill text-xs text-gray-200">SQL</span>
-                                <span class="pill text-xs text-gray-200">R</span>
-                                <span class="pill text-xs text-gray-200">JavaScript</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Platforms & Frameworks</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Power BI</span>
-                                <span class="pill text-xs text-gray-200">TensorFlow</span>
-                                <span class="pill text-xs text-gray-200">scikit-learn</span>
-                                <span class="pill text-xs text-gray-200">pandas</span>
-                                <span class="pill text-xs text-gray-200">Apache Spark</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t" style="border-color: var(--border);">
-                        <h4 class="font-medium mb-3 text-gray-300 text-sm">Proficiency Levels</h4>
-                        <div class="space-y-3">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-300">Python & SQL</span>
-                                    <span class="text-sm text-gray-400">Expert</span>
-                                </div>
-                                <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-300">Power BI & Visualization</span>
-                                    <span class="text-sm text-gray-400">Advanced</span>
-                                </div>
-                                <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-sm text-gray-300">Machine Learning</span>
-                                    <span class="text-sm text-gray-400">Advanced</span>
-                                </div>
-                                <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-accent to-accent2 h-2 rounded-full" style="width: 85%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Domain Expertise -->
-                <div class="card p-6">
-                    <div class="flex items-center mb-4 gap-3">
-                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
-                            <i class="fas fa-brain text-accent text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Domain Expertise</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Core Areas</h4>
-                            <div class="space-y-3">
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
-                                    <span class="text-sm text-gray-300">Big Data Analysis & Processing</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
-                                    <span class="text-sm text-gray-300">Machine Learning Engineering</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
-                                    <span class="text-sm text-gray-300">Security & Cybersecurity</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="w-2 h-2 rounded-full mr-3" style="background: var(--accent);"></div>
-                                    <span class="text-sm text-gray-300">Data Pipeline Automation</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Specializations</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Fraud Detection</span>
-                                <span class="pill text-xs text-gray-200">Anomaly Detection</span>
-                                <span class="pill text-xs text-gray-200">Predictive Analytics</span>
-                                <span class="pill text-xs text-gray-200">ETL Pipelines</span>
-                                <span class="pill text-xs text-gray-200">Data Modeling</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Soft Skills & Approach -->
-                <div class="card p-6">
-                    <div class="flex items-center mb-4 gap-3">
-                        <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-users text-accent text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Approach & Skills</h3>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Working Style</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Clear Communication</span>
-                                <span class="pill text-xs text-gray-200">Documentation</span>
-                                <span class="pill text-xs text-gray-200">Iterative Development</span>
-                                <span class="pill text-xs text-gray-200">Quality First</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-medium mb-2 text-gray-300 text-sm">Problem-Solving</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="pill text-xs text-gray-200">Root Cause Analysis</span>
-                                <span class="pill text-xs text-gray-200">Data-Driven Decisions</span>
-                                <span class="pill text-xs text-gray-200">Pragmatic Solutions</span>
-                                <span class="pill text-xs text-gray-200">Testing & Validation</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t" style="border-color: var(--border);">
-                        <h4 class="font-medium mb-3 text-gray-300 text-sm">Values</h4>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="text-center">
-                                <div class="w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-2" style="background: rgba(75,112,245,0.12);">
-                                    <i class="fas fa-lightbulb text-accent text-lg"></i>
-                                </div>
-                                <span class="text-xs text-gray-300">Simplicity</span>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-14 h-14 mx-auto rounded-xl flex items-center justify-center mb-2" style="background: rgba(75,112,245,0.12);">
-                                    <i class="fas fa-rocket text-accent text-lg"></i>
-                                </div>
-                                <span class="text-xs text-gray-300">Impact</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="cv-dialog__bottom">
+          <a class="btn btn-secondary" href="./RayenKorbi.pdf" target="_blank" rel="noreferrer">Open in new tab</a>
         </div>
-    </section>
+      </dialog>
 
-    <!-- Case Studies -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="flex items-end justify-between gap-6 mb-10">
-                <div>
-                    <div class="kicker">Case studies</div>
-                    <h2 class="mt-3 text-3xl md:text-4xl font-bold">Selected work</h2>
-                    <p class="mt-4 text-lg" style="color: var(--muted); max-width: 72ch;">
-                        Real portfolios read like specifics. Swap the bracketed parts for your real numbers when you’re ready.
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 01</div>
-                            <h3 class="mt-2 text-2xl font-semibold">TruthLense - Fake News Detector</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-shield-halved text-accent text-xl"></i>
-                        </div>
-                    </div>
-
-                    <p class="mt-4 text-gray-400">AI-powered misinformation detection system combining NLP and machine learning for real-time fact-checking.</p>
-
-                    <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
-                        <li>Built using Python for model training & JavaScript for web interface</li>
-                        <li>Implements NLP techniques for text analysis and credibility scoring</li>
-                        <li>Real-time detection of misleading content patterns</li>
-                    </ul>
-
-                    <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Status</div>
-                            <div class="font-semibold text-gray-100">Active Development</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Updated</div>
-                            <div class="font-semibold text-gray-100">Nov 2025</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">2 ⭐</div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">JavaScript</span>
-                        <span class="pill text-xs text-gray-200">NLP</span>
-                        <span class="pill text-xs text-gray-200">ML</span>
-                    </div>
-                    <div class="mt-4 flex gap-3">
-                        <a href="https://github.com/korbirayen/TruthLense-Model" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2">
-                            <i class="fab fa-github"></i> Model Repo
-                        </a>
-                        <a href="https://github.com/korbirayen/TruthLense" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2">
-                            <i class="fab fa-github"></i> Frontend
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 02</div>
-                            <h3 class="mt-2 text-2xl font-semibold">MoodMonitor - Sentiment Tracker</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
-                            <i class="fab fa-twitter text-accent text-xl"></i>
-                        </div>
-                    </div>
-
-                    <p class="mt-4 text-gray-400">Real-time Twitter (X) sentiment analysis tool for tracking public opinion and emotional trends.</p>
-
-                    <ul class="mt-4 text-gray-400" style="list-style: disc; padding-left: 1.25rem;">
-                        <li>Real-time data collection from Twitter API</li>
-                        <li>Sentiment classification using NLP models</li>
-                        <li>Interactive dashboard for trend visualization</li>
-                    </ul>
-
-                    <div class="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Type</div>
-                            <div class="font-semibold text-gray-100">Real-time Analytics</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Updated</div>
-                            <div class="font-semibold text-gray-100">Nov 2025</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">2 ⭐</div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Twitter API</span>
-                        <span class="pill text-xs text-gray-200">NLP</span>
-                        <span class="pill text-xs text-gray-200">Real-time</span>
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://github.com/korbirayen/MoodMonitor" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="mt-6 grid grid-cols-1">
-                <article class="card p-7 case-card">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        <div>
-                            <div class="kicker">Case study 03</div>
-                            <h3 class="mt-2 text-2xl font-semibold">Metrics layer + QA checks</h3>
-                            <p class="mt-3 text-gray-400">A small “metrics contract”: definitions, tests, and a couple of dashboards that catch upstream breakage.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill text-xs text-gray-200">SQL</span>
-                            <span class="pill text-xs text-gray-200">Data modeling</span>
-                            <span class="pill text-xs text-gray-200">Automation</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 03</div>
-                            <h3 class="mt-2 text-2xl font-semibold">PFE-Helper</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-robot text-accent text-xl"></i>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-gray-400">Automated Telegram bot that scrapes PFEBooks.com and notifies Tunisian students about new internship opportunities instantly.</p>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Impact</div>
-                            <div class="font-semibold text-gray-100">Helps students</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">2 ⭐</div>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Telegram Bot</span>
-                        <span class="pill text-xs text-gray-200">Web Scraping</span>
-                        <span class="pill text-xs text-gray-200">Automation</span>
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://github.com/korbirayen/PFE-Helper" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 04</div>
-                            <h3 class="mt-2 text-2xl font-semibold">MovieMind</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
-                            <i class="fas fa-film text-accent text-xl"></i>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-gray-400">Netflix-style movie trend analyzer that identifies viewing patterns and predicts popular content trends.</p>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Type</div>
-                            <div class="font-semibold text-gray-100">Trend Analysis</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">2 ⭐</div>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Data Analysis</span>
-                        <span class="pill text-xs text-gray-200">Visualization</span>
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://github.com/korbirayen/MovieMind" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 05</div>
-                            <h3 class="mt-2 text-2xl font-semibold">Flight Delay ML Project</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(75,112,245,0.14);">
-                            <i class="fas fa-plane text-accent text-xl"></i>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-gray-400">Machine learning model predicting flight delays using historical data and weather patterns.</p>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Format</div>
-                            <div class="font-semibold text-gray-100">Jupyter Notebook</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">1 ⭐</div>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">Python</span>
-                        <span class="pill text-xs text-gray-200">Machine Learning</span>
-                        <span class="pill text-xs text-gray-200">Jupyter</span>
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://github.com/korbirayen/flight_delay_ML_project" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card p-7 case-card">
-                    <div class="flex items-center justify-between gap-4">
-                        <div>
-                            <div class="kicker">Project 06</div>
-                            <h3 class="mt-2 text-2xl font-semibold">NoFap Extension</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background: rgba(76,59,207,0.14);">
-                            <i class="fas fa-shield text-accent text-xl"></i>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-gray-400">Browser extension for Chrome & Firefox designed to block adult content and support digital wellness.</p>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">License</div>
-                            <div class="font-semibold text-gray-100">MIT</div>
-                        </div>
-                        <div class="case-metric p-4">
-                            <div class="text-xs text-gray-400">Stars</div>
-                            <div class="font-semibold text-gray-100">8 ⭐</div>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex flex-wrap gap-2">
-                        <span class="pill text-xs text-gray-200">HTML</span>
-                        <span class="pill text-xs text-gray-200">Chrome Extension</span>
-                        <span class="pill text-xs text-gray-200">Firefox Extension</span>
-                    </div>
-                    <div class="mt-4">
-                        <a href="https://github.com/korbirayen/NoFap" target="_blank" rel="noreferrer" class="btn btn-secondary px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 inline-flex">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Writing -->
-    <section id="blog" class="section">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Writing</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Notes on data, ML, and security</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted);">Short posts and deep dives. (Opens in a focused reading modal.)</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="blog-posts-container">
-                <div class="card p-6">
-                    <div class="flex items-center justify-between">
-                        <div class="kicker">May 15, 2023</div>
-                        <span class="pill text-xs text-gray-200">5 min</span>
-                    </div>
-                    <h3 class="mt-3 text-xl font-semibold">Securing ML Models in Production</h3>
-                    <p class="mt-2 text-gray-400">Practical strategies to protect models from common attack vectors.</p>
-                    <a href="#blog-post-1" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
-                        Read <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="card p-6">
-                    <div class="flex items-center justify-between">
-                        <div class="kicker">April 28, 2023</div>
-                        <span class="pill text-xs text-gray-200">8 min</span>
-                    </div>
-                    <h3 class="mt-3 text-xl font-semibold">Anomaly Detection Techniques</h3>
-                    <p class="mt-2 text-gray-400">Traditional statistics vs deep learning, and when each wins.</p>
-                    <a href="#blog-post-2" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
-                        Read <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <div class="card p-6">
-                    <div class="flex items-center justify-between">
-                        <div class="kicker">March 10, 2023</div>
-                        <span class="pill text-xs text-gray-200">6 min</span>
-                    </div>
-                    <h3 class="mt-3 text-xl font-semibold">Zero Trust Architecture</h3>
-                    <p class="mt-2 text-gray-400">A grounded take on building systems that assume breach.</p>
-                    <a href="#blog-post-3" class="mt-4 inline-flex items-center gap-2 text-accent font-semibold view-post-btn">
-                        Read <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="mt-10">
-                <button id="view-all-articles" class="btn btn-secondary px-6 py-3 rounded-lg font-semibold">
-                    View all articles
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Post Modal -->
-    <div id="blog-post-modal" class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3 id="blog-post-modal-title" class="modal-title"></h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div id="blog-post-modal-content" class="modal-content blog-post-content">
-                <!-- Content will be inserted here -->
-            </div>
-        </div>
+      <footer class="footer">
+        <div>© <span id="year">2025</span> Rayen • Built as plain HTML + small CSS.</div>
+      </footer>
     </div>
-
-    <!-- All Articles Modal -->
-    <div id="all-articles-modal" class="modal-overlay">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3 class="modal-title">All Articles</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="all-articles-grid" id="all-articles-grid">
-                    <!-- Articles will be inserted here -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dummy Blog Post Content (Hidden) -->
-    <div class="hidden">
-        <!-- Blog Post 1 Content -->
-        <div id="blog-post-1-content">
-            <h2>Introduction to ML Model Security</h2>
-            <p>Machine learning models in production environments are increasingly becoming targets for adversarial attacks. As these models power critical business decisions, ensuring their security is paramount.</p>
-            
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ML Security" loading="lazy" decoding="async">
-            
-            <h2>Common Attack Vectors</h2>
-            <p>There are several ways attackers can compromise ML models:</p>
-            <ul>
-                <li><strong>Model Inversion:</strong> Reconstructing training data from model outputs</li>
-                <li><strong>Membership Inference:</strong> Determining if specific data was used in training</li>
-                <li><strong>Adversarial Examples:</strong> Crafting inputs to cause incorrect predictions</li>
-            </ul>
-            
-            <h2>Defensive Strategies</h2>
-            <p>Implement these security measures:</p>
-            
-            <pre><code># Example: Differential Privacy in TensorFlow
-import tensorflow as privacy
-
-dp_optimizer = privacy.DPKerasAdamOptimizer(
-    l2_norm_clip=1.0,
-    noise_multiplier=0.5,
-    num_microbatches=1,
-    learning_rate=0.001
-)</code></pre>
-            
-            <p>Regular security audits and monitoring of model behavior are also essential for maintaining robust defenses against evolving threats.</p>
-        </div>
-        
-        <!-- Blog Post 2 Content -->
-        <div id="blog-post-2-content">
-            <h2>Anomaly Detection Landscape</h2>
-            <p>Detecting anomalies in data streams is crucial for fraud detection, network security, and system monitoring. The field has evolved significantly in recent years.</p>
-            
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Anomaly Detection" loading="lazy" decoding="async">
-            
-            <h2>Traditional Methods</h2>
-            <p>Statistical approaches have been the backbone of anomaly detection:</p>
-            <ul>
-                <li>Z-score analysis</li>
-                <li>Interquartile Range (IQR)</li>
-                <li>Density-based methods</li>
-            </ul>
-            
-            <h2>Deep Learning Approaches</h2>
-            <p>Modern techniques leverage neural networks:</p>
-            <ul>
-                <li>Autoencoders for reconstruction error</li>
-                <li>GAN-based anomaly detection</li>
-                <li>Transformer models for sequential data</li>
-            </ul>
-            
-            <pre><code># Example: Autoencoder for anomaly detection
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Dense
-
-input_dim = 20
-encoding_dim = 10
-
-input_layer = Input(shape=(input_dim,))
-encoder = Dense(encoding_dim, activation='relu')(input_layer)
-decoder = Dense(input_dim, activation='sigmoid')(encoder)
-autoencoder = Model(inputs=input_layer, outputs=decoder)</code></pre>
-            
-            <p>The choice between traditional and modern methods depends on your specific use case, data characteristics, and computational resources.</p>
-        </div>
-        
-        <!-- Blog Post 3 Content -->
-        <div id="blog-post-3-content">
-            <h2>The Zero Trust Paradigm</h2>
-            <p>Traditional network security models based on perimeter defense are no longer sufficient in today's distributed computing environments.</p>
-            
-            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Zero Trust" loading="lazy" decoding="async">
-            
-            <h2>Core Principles</h2>
-            <p>Zero Trust Architecture operates on three fundamental principles:</p>
-            <ol>
-                <li><strong>Verify explicitly:</strong> Authenticate and authorize every access request</li>
-                <li><strong>Least privilege access:</strong> Grant minimum necessary permissions</li>
-                <li><strong>Assume breach:</strong> Design systems with the expectation of compromise</li>
-            </ol>
-            
-            <h2>Implementation Strategies</h2>
-            <p>Key components of a Zero Trust implementation:</p>
-            
-            <pre><code>// Example: Policy decision point in ZTNA
-function evaluateAccess(user, resource, context) {
-    // Check user identity and device health
-    if (!user.authenticated || !device.isHealthy) {
-        return {granted: false, reason: "Authentication failed"};
-    }
-    
-    // Check time-based restrictions
-    if (context.time.hour < 9 || context.time.hour > 17) {
-        return {granted: false, reason: "Outside business hours"};
-    }
-    
-    // Default deny
-    return {granted: false, reason: "No matching policy"};
-}</code></pre>
-            
-            <p>Transitioning to Zero Trust requires careful planning and phased implementation, but the security benefits justify the investment.</p>
-        </div>
-    </div>
-
-    <!-- Tools & Technologies -->
-    <section id="tools" class="section-tight">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Tools & Technologies</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">My Tech Stack</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
-                    Technologies and platforms I work with regularly to build data solutions.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Data Analysis -->
-                <div class="card p-6">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,112,245,0.14);">
-                        <i class="fas fa-chart-bar text-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Data Analysis</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Python (pandas, NumPy)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>SQL (PostgreSQL, MySQL)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>R (dplyr, ggplot2)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Excel / Google Sheets</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Visualization -->
-                <div class="card p-6">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(76,59,207,0.14);">
-                        <i class="fas fa-chart-line text-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Visualization</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Power BI</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Tableau</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Matplotlib / Seaborn</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Plotly / Dash</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Machine Learning -->
-                <div class="card p-6">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(75,112,245,0.14);">
-                        <i class="fas fa-brain text-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Machine Learning</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>scikit-learn</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>TensorFlow / Keras</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>PyTorch</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>XGBoost / LightGBM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Big Data & Cloud -->
-                <div class="card p-6">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: rgba(76,59,207,0.14);">
-                        <i class="fas fa-cloud text-accent text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-3">Big Data & Cloud</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Apache Spark / PySpark</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Hadoop / Hive</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>AWS / Azure / GCP</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-check text-accent text-xs"></i>
-                            <span>Docker / Kubernetes</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Experience Timeline -->
-    <section id="timeline" class="section-tight">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Background</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Education & Experience</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted); max-width: 68ch;">
-                    My journey in data analytics and big data.
-                </p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <!-- Timeline Item 1 -->
-                <div class="relative pl-8 pb-10 border-l-2" style="border-color: var(--border2);">
-                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: linear-gradient(135deg, var(--accent), var(--accent2));"></div>
-                    <div class="card p-6">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
-                            <h3 class="text-xl font-semibold">Data Analytics & Big Data Studies</h3>
-                            <span class="pill text-xs text-gray-200">Current</span>
-                        </div>
-                        <p class="text-gray-400 mb-3">Student specializing in data analytics, big data technologies, and machine learning</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill text-xs text-gray-200">Big Data</span>
-                            <span class="pill text-xs text-gray-200">Analytics</span>
-                            <span class="pill text-xs text-gray-200">Machine Learning</span>
-                            <span class="pill text-xs text-gray-200">Security</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="relative pl-8 pb-10 border-l-2" style="border-color: var(--border2);">
-                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: var(--accent);"></div>
-                    <div class="card p-6">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
-                            <h3 class="text-xl font-semibold">Data Analysis Projects</h3>
-                            <span class="text-sm text-gray-400">2023 - Present</span>
-                        </div>
-                        <p class="text-gray-400 mb-3">Building practical data solutions with focus on fraud detection, security monitoring, and automation</p>
-                        <ul class="space-y-2 text-sm text-gray-400">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
-                                <span>Developed ML models for fraud detection with reduced false positives</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
-                                <span>Created security monitoring dashboards with Power BI</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-arrow-right text-accent mt-1 text-xs"></i>
-                                <span>Implemented data quality checks and automated validation</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div class="relative pl-8">
-                    <div class="absolute left-0 top-0 w-4 h-4 rounded-full -translate-x-[9px]" style="background: var(--accent2);"></div>
-                    <div class="card p-6">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
-                            <h3 class="text-xl font-semibold">Continuous Learning</h3>
-                            <span class="text-sm text-gray-400">Ongoing</span>
-                        </div>
-                        <p class="text-gray-400 mb-3">Staying current with emerging technologies and best practices</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="pill text-xs text-gray-200">MLOps</span>
-                            <span class="pill text-xs text-gray-200">Cloud Computing</span>
-                            <span class="pill text-xs text-gray-200">Data Engineering</span>
-                            <span class="pill text-xs text-gray-200">Cybersecurity</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="mb-10">
-                <div class="kicker">Contact</div>
-                <h2 class="mt-3 text-3xl md:text-4xl font-bold">Want to work together?</h2>
-                <p class="mt-4 text-lg" style="color: var(--muted);">Send a message and I’ll reply with next steps.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <div class="lg:col-span-5">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold">Contact</h3>
-                        <div class="mt-5 space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(75,112,245,0.12);">
-                                    <i class="fas fa-envelope text-accent"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-gray-400">Email</div>
-                                    <div class="text-sm text-gray-200">contact.rayenkorbi@gmail.com</div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: rgba(76,59,207,0.12);">
-                                    <i class="fas fa-location-dot text-accent"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs text-gray-400">Location</div>
-                                    <div class="text-sm text-gray-200">Tunis, Tunisia</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-8">
-                            <div class="kicker">Connect</div>
-                            <div class="mt-3 flex gap-3">
-                                <a href="https://github.com/korbirayen" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
-                                    <i class="fab fa-github text-light"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/rayen-korbi-4ab072240/" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
-                                    <i class="fab fa-linkedin-in text-light"></i>
-                                </a>
-                                <a href="https://x.com/k0_ryn" target="_blank" rel="noreferrer" class="btn btn-secondary w-12 h-12 rounded-xl flex items-center justify-center">
-                                    <i class="fab fa-twitter text-light"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7">
-                    <div class="card p-6">
-                        <h3 class="text-xl font-semibold">Message me</h3>
-                        <form class="mt-5 space-y-4" target="_blank" action="https://formsubmit.co/contact.rayenkorbi@gmail.com" method="POST">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <input type="text" name="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
-                                <input type="email" name="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
-                            </div>
-                            <input type="text" name="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required>
-                            <textarea rows="5" name="message" placeholder="Message" class="w-full px-4 py-3 rounded-lg focus:ring-1 focus:ring-accent" required></textarea>
-                            <button type="submit" class="btn btn-primary w-full bg-gradient-to-r from-accent to-accent2 text-white px-6 py-3 rounded-lg font-semibold">
-                                Send message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-10 px-6 border-t border-gray-800/40">
-        <div class="container">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <img src="/images/logo.png" alt="Logo" class="logo-img">
-                    <span class="text-sm text-gray-400">© 2025 Rayen Korbi</span>
-                </div>
-                <div class="text-sm text-gray-400">Built with Tailwind + a tiny bit of JS.</div>
-            </div>
-        </div>
-    </footer>
-
-    </main>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+      document.getElementById('year').textContent = String(new Date().getFullYear());
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            const isOpen = !mobileMenu.classList.contains('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', String(isOpen));
+      const cvDialog = document.getElementById('cvDialog');
+      const openCv = document.getElementById('openCv');
+      const closeCv = document.getElementById('closeCv');
+
+      openCv.addEventListener('click', () => {
+        if (typeof cvDialog.showModal === 'function') {
+          cvDialog.showModal();
+        } else {
+          window.open('./RayenKorbi.pdf', '_blank', 'noopener,noreferrer');
+        }
+      });
+
+      closeCv.addEventListener('click', () => cvDialog.close());
+      cvDialog.addEventListener('click', (e) => {
+        // close when clicking the backdrop area
+        if (e.target === cvDialog) cvDialog.close();
+      });
+
+      // Make navbar clicks visually obvious.
+      const navLinks = Array.from(document.querySelectorAll('.nav a'));
+      navLinks.forEach((a) => {
+        a.addEventListener('click', () => {
+          navLinks.forEach((x) => x.removeAttribute('aria-current'));
+          a.setAttribute('aria-current', 'page');
         });
-
-        // Close mobile menu with Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key !== 'Escape') return;
-            if (mobileMenu.classList.contains('hidden')) return;
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.setAttribute('aria-expanded', 'false');
-            mobileMenuButton.focus();
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                // allow external links
-                if (!targetId || targetId.length < 2 || !targetElement) return;
-
-                e.preventDefault();
-
-                window.scrollTo({
-                    top: targetElement.offsetTop - 76,
-                    behavior: 'smooth'
-                });
-
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Highlight active nav link
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let current = '';
-            sections.forEach(section => {
-                if (pageYOffset >= section.offsetTop - 120) current = section.getAttribute('id');
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                if (link.getAttribute('href') === `#${current}`) link.classList.add('active-nav');
-            });
-        });
-
-        // Writing modal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // Modal elements
-            const blogPostModal = document.getElementById('blog-post-modal');
-            const blogPostModalTitle = document.getElementById('blog-post-modal-title');
-            const blogPostModalContent = document.getElementById('blog-post-modal-content');
-            const allArticlesModal = document.getElementById('all-articles-modal');
-            const allArticlesGrid = document.getElementById('all-articles-grid');
-            
-            // Close buttons
-            const closeButtons = document.querySelectorAll('.modal-close');
-            
-            // View All Articles button
-            const viewAllArticlesBtn = document.getElementById('view-all-articles');
-            
-            // Blog posts data (sorted by date, newest first)
-            const blogPosts = [
-                {
-                    id: 'blog-post-1',
-                    title: 'Securing ML Models in Production',
-                    date: 'May 15, 2023',
-                    readTime: '5 min read',
-                    excerpt: 'Best practices for protecting machine learning models from adversarial attacks in production environments.',
-                    icon: 'lock',
-                    contentId: 'blog-post-1-content'
-                },
-                {
-                    id: 'blog-post-2',
-                    title: 'Anomaly Detection Techniques',
-                    date: 'April 28, 2023',
-                    readTime: '8 min read',
-                    excerpt: 'Comparing traditional statistical methods with modern deep learning approaches for anomaly detection.',
-                    icon: 'chart-line',
-                    contentId: 'blog-post-2-content'
-                },
-                {
-                    id: 'blog-post-3',
-                    title: 'Zero Trust Architecture',
-                    date: 'March 10, 2023',
-                    readTime: '6 min read',
-                    excerpt: 'Implementing zero trust principles in modern enterprise networks for enhanced security.',
-                    icon: 'network-wired',
-                    contentId: 'blog-post-3-content'
-                }
-            ];
-            
-            // Populate all articles grid
-            function populateAllArticles() {
-                allArticlesGrid.innerHTML = '';
-                
-                blogPosts.forEach(post => {
-                    const articleCard = document.createElement('div');
-                    articleCard.className = 'article-card';
-                    articleCard.innerHTML = `
-                        <div class="article-image">
-                            <i class="fas fa-${post.icon}"></i>
-                        </div>
-                        <div class="article-info">
-                            <div class="article-date">${post.date} • ${post.readTime}</div>
-                            <h4 class="article-title">${post.title}</h4>
-                            <p class="article-excerpt">${post.excerpt}</p>
-                            <a href="#${post.id}" class="article-read-more view-post-btn">
-                                Read more <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    `;
-                    allArticlesGrid.appendChild(articleCard);
-                });
-            }
-            
-            // Initialize all articles grid
-            populateAllArticles();
-            
-            // View All Articles button click handler
-            viewAllArticlesBtn.addEventListener('click', function() {
-                allArticlesModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            // View post button click handler (for both main page and all articles modal)
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('view-post-btn') || 
-                    e.target.parentElement.classList.contains('view-post-btn')) {
-                    
-                    e.preventDefault();
-                    
-                    // Get the post ID from the href
-                    const postLink = e.target.classList.contains('view-post-btn') ? 
-                        e.target : e.target.parentElement;
-                    const postId = postLink.getAttribute('href').substring(1);
-                    
-                    // Find the corresponding post in our data
-                    const post = blogPosts.find(p => p.id === postId);
-                    
-                    if (post) {
-                        // Set modal title
-                        blogPostModalTitle.textContent = post.title;
-                        
-                        // Load the corresponding content
-                        const postContent = document.getElementById(post.contentId).innerHTML;
-                        blogPostModalContent.innerHTML = postContent;
-
-                        // Lazy-load any images inside the injected post content
-                        blogPostModalContent.querySelectorAll('img[data-src]').forEach((img) => {
-                            const realSrc = img.getAttribute('data-src');
-                            if (!realSrc) return;
-                            img.setAttribute('src', realSrc);
-                            img.removeAttribute('data-src');
-                        });
-                        
-                        // Show the modal
-                        blogPostModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                        
-                        // Close any other open modals
-                        allArticlesModal.classList.remove('active');
-                    }
-                }
-            });
-            
-            // Close modal when clicking on overlay
-            [blogPostModal, allArticlesModal].forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-            
-            // Close modal when clicking on close button
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.modal-overlay');
-                    modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-            
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    [blogPostModal, allArticlesModal].forEach(modal => {
-                        if (modal.classList.contains('active')) {
-                            modal.classList.remove('active');
-                            document.body.style.overflow = '';
-                        }
-                    });
-                }
-            });
-            
-            // Handle direct links to blog posts (e.g., from URL hash)
-            window.addEventListener('load', function() {
-                if (window.location.hash && window.location.hash.startsWith('#blog-post-')) {
-                    const postId = window.location.hash.substring(1);
-                    const post = blogPosts.find(p => p.id === postId);
-                    
-                    if (post) {
-                        // Set modal title
-                        blogPostModalTitle.textContent = post.title;
-                        
-                        // Load the corresponding content
-                        const postContent = document.getElementById(post.contentId).innerHTML;
-                        blogPostModalContent.innerHTML = postContent;
-
-                        // Lazy-load any images inside the injected post content
-                        blogPostModalContent.querySelectorAll('img[data-src]').forEach((img) => {
-                            const realSrc = img.getAttribute('data-src');
-                            if (!realSrc) return;
-                            img.setAttribute('src', realSrc);
-                            img.removeAttribute('data-src');
-                        });
-                        
-                        // Show the modal
-                        blogPostModal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                }
-            });
-        });
-
-        // Scroll-reveal (tasteful motion, respects reduced-motion)
-        (function initScrollReveal() {
-            const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const targets = [
-                ...document.querySelectorAll('section'),
-                ...document.querySelectorAll('.card'),
-                document.querySelector('footer'),
-            ].filter(Boolean);
-
-            if (targets.length === 0) return;
-
-            targets.forEach((el) => el.classList.add('reveal'));
-
-            if (prefersReducedMotion) {
-                targets.forEach((el) => el.classList.add('is-visible'));
-                return;
-            }
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    });
-                },
-                { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
-            );
-
-            targets.forEach((el) => observer.observe(el));
-        })();
+      });
     </script>
-</body>
+  </body>
 </html>
