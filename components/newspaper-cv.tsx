@@ -239,7 +239,7 @@ export function NewspaperCV() {
 
       // Update active section based on scroll position
       const sections = ["home", "about", "experience", "projects", "education", "skills", "contact"]
-      for (const section of sections.reverse()) {
+      for (const section of [...sections].reverse()) {
         const element = document.getElementById(section)
         if (element) {
           const rect = element.getBoundingClientRect()
@@ -336,10 +336,10 @@ export function NewspaperCV() {
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="paper paper-shadow paper-edges paper-texture relative overflow-hidden">
             {/* Decorative Corners */}
-            <div className="absolute top-4 left-4 w-12 h-12 border-l-3 border-t-3 border-[#8b5a2b] opacity-40" />
-            <div className="absolute top-4 right-4 w-12 h-12 border-r-3 border-t-3 border-[#8b5a2b] opacity-40" />
-            <div className="absolute bottom-4 left-4 w-12 h-12 border-l-3 border-b-3 border-[#8b5a2b] opacity-40" />
-            <div className="absolute bottom-4 right-4 w-12 h-12 border-r-3 border-b-3 border-[#8b5a2b] opacity-40" />
+            <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-[#8b5a2b] opacity-40" />
+            <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-[#8b5a2b] opacity-40" />
+            <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-[#8b5a2b] opacity-40" />
+            <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-[#8b5a2b] opacity-40" />
 
             <div className="px-6 md:px-12 py-10 relative z-10">
               {/* Hero Section */}
