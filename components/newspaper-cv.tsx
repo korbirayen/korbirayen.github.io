@@ -103,24 +103,25 @@ export function NewspaperCV() {
     { org: "Stanford", year: "2024", cert: "Machine Learning Specialization", color: "#8c1515" },
   ]
 
+  // Placeholder testimonials - Replace with real testimonials when available
   const testimonials = [
     {
       quote: "Rayen demonstrates exceptional analytical thinking and a natural ability to transform complex data into actionable insights.",
-      author: "Dr. Sarah Chen",
-      role: "Data Science Professor, MIT",
-      avatar: "SC",
+      author: "Example Mentor",
+      role: "Data Science Professor",
+      avatar: "EM",
     },
     {
       quote: "His work on predictive modeling exceeded our expectations. A true professional with a passion for innovation.",
-      author: "Mohamed Trabelsi",
-      role: "CTO, TechVentures Tunisia",
-      avatar: "MT",
+      author: "Example Supervisor",
+      role: "Tech Industry Professional",
+      avatar: "ES",
     },
     {
       quote: "One of the most dedicated students I've mentored. His projects show remarkable creativity and technical depth.",
-      author: "Prof. Ahmed Belhaj",
-      role: "Director, ECSP Analytics Lab",
-      avatar: "AB",
+      author: "Example Colleague",
+      role: "Analytics Professional",
+      avatar: "EC",
     },
   ]
 
