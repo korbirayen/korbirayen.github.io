@@ -1,469 +1,990 @@
-import { Mail, Phone, Github, Linkedin, MapPin, Download, ExternalLink } from "lucide-react"
+"use client"
+
+import { useState, useEffect } from "react"
+import {
+  Mail,
+  Phone,
+  Github,
+  Linkedin,
+  MapPin,
+  Download,
+  ExternalLink,
+  ChevronDown,
+  Sparkles,
+  Code2,
+  Database,
+  Brain,
+  Zap,
+  Award,
+  GraduationCap,
+  Briefcase,
+  Send,
+  CheckCircle2,
+  ArrowUp,
+  Menu,
+  X,
+} from "lucide-react"
 
 export function NewspaperCV() {
+  const [scrollY, setScrollY] = useState(0)
+  const [activeSection, setActiveSection] = useState("hero")
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent">("idle")
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+      setShowScrollTop(window.scrollY > 500)
+
+      // Update active section based on scroll position
+      const sections = ["hero", "about", "experience", "projects", "skills", "education", "contact"]
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setMobileMenuOpen(false)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormStatus("sending")
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus("sent")
+      setTimeout(() => setFormStatus("idle"), 3000)
+    }, 1500)
+  }
+
+  const navItems = [
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
+    { id: "skills", label: "Skills" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
+  ]
+
+  const skills = [
+    { category: "Data Visualization", items: ["Tableau", "Power BI", "Matplotlib", "Seaborn"], icon: Database },
+    { category: "Python", items: ["Automation", "NLP", "OpenCV", "Pandas", "NumPy"], icon: Code2 },
+    { category: "Machine Learning", items: ["Supervised", "Unsupervised", "LLMs", "AI Agents"], icon: Brain },
+    { category: "Automation", items: ["Power Automate", "Robot Framework", "n8n"], icon: Zap },
+    { category: "Big Data", items: ["Hadoop", "Spark", "ETL Pipelines"], icon: Database },
+  ]
+
+  const certifications = [
+    { org: "freeCodeCamp", year: "2024", cert: "Data Analysis with Python", color: "#0a0a23" },
+    { org: "AWS", year: "2025", cert: "Cloud Foundations", color: "#ff9900" },
+    { org: "Hashgraph", year: "2025", cert: "Web 3 Development", color: "#8b5cf6" },
+    { org: "Google", year: "2024", cert: "Cybersecurity Professional", color: "#4285f4" },
+    { org: "Stanford", year: "2024", cert: "Machine Learning Specialization", color: "#8c1515" },
+  ]
+
+  // Placeholder testimonials - Replace with real testimonials when available
+  const testimonials = [
+    {
+      quote: "Rayen demonstrates exceptional analytical thinking and a natural ability to transform complex data into actionable insights.",
+      author: "Example Mentor",
+      role: "Data Science Professor",
+      avatar: "EM",
+    },
+    {
+      quote: "His work on predictive modeling exceeded our expectations. A true professional with a passion for innovation.",
+      author: "Example Supervisor",
+      role: "Tech Industry Professional",
+      avatar: "ES",
+    },
+    {
+      quote: "One of the most dedicated students I've mentored. His projects show remarkable creativity and technical depth.",
+      author: "Example Colleague",
+      role: "Analytics Professional",
+      avatar: "EC",
+    },
+  ]
+
   return (
-    <div
-      className="min-h-screen bg-[#b8b3a8] py-4 sm:py-8 md:py-12"
-      style={{
-        backgroundImage: `url("https://www.transparenttextures.com/patterns/cardboard.png")`,
-        backgroundBlendMode: "multiply",
-      }}
-    >
-      <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-0">
-        <div className="paper paper-shadow paper-edges fold-line paper-worn paper-texture relative">
-          <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-[#2c2c2c] opacity-60" />
-          <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-[#2c2c2c] opacity-60" />
-          <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-[#2c2c2c] opacity-60" />
-          <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-[#2c2c2c] opacity-60" />
+    <div className="min-h-screen bg-[#0f0f0f] text-[#f5f1e8] overflow-x-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#0f0f0f] to-[#1a1a1a]" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#c9a962] rounded-full filter blur-[150px] opacity-10 animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#c9a962] rounded-full filter blur-[150px] opacity-5 animate-float delay-500" />
+      </div>
 
-          <div className="px-4 sm:px-6 md:px-10 py-6 sm:py-8 md:py-10 relative z-10">
-            <header className="border-b-2 border-[#2c2c2c] pb-2 mb-1">
-              <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-xs text-[#555] font-serif ink-text gap-1 sm:gap-0">
-                <span className="flex items-center gap-2">
-                  <span className="hidden sm:inline">★</span>
-                  <span>Edition: December 21, 2025</span>
-                </span>
-                <span className="hidden sm:inline tracking-widest uppercase text-[9px]">
-                  Independent • Personal • Portfolio
-                </span>
-                <span className="hidden sm:flex items-center gap-2">
-                  <span>Price: Priceless</span>
-                  <span className="hidden sm:inline">★</span>
-                </span>
-              </div>
-            </header>
+      {/* Navigation */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrollY > 50 ? "bg-[#0f0f0f]/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="font-serif text-xl sm:text-2xl font-bold gold-gradient cursor-pointer"
+            >
+              RK
+            </button>
 
-            <div className="flex items-center justify-center gap-4 py-2">
-              <div className="flex-1 h-px bg-[#2c2c2c]" />
-              <span className="text-[#2c2c2c] text-xs font-serif">✦</span>
-              <div className="flex-1 h-px bg-[#2c2c2c]" />
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`nav-link font-serif text-sm uppercase tracking-wider transition-colors ${
+                    activeSection === item.id ? "text-[#c9a962]" : "text-[#f5f1e8]/70 hover:text-[#f5f1e8]"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
 
-            <div className="text-center py-4 sm:py-6 border-b-4 border-double border-[#2c2c2c]">
-              <p className="font-serif text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#555] mb-2">
-                The Portfolio of
-              </p>
-              <h1
-                className="font-serif text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-[#1a1a1a] uppercase ink-text"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Rayen Korbi
-              </h1>
-              <p className="font-serif text-sm sm:text-base md:text-lg italic text-[#444] mt-2">
-                "Transforming Data into Decisions"
-              </p>
-
-              <div className="flex items-center justify-center gap-3 mt-4">
-                <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#2c2c2c] to-transparent" />
-                <span className="text-lg text-[#2c2c2c]">❧</span>
-                <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#2c2c2c] to-transparent" />
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between py-3 border-b border-[#2c2c2c] text-[10px] sm:text-xs font-serif text-[#555] ink-text">
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3 h-3" />
-                Tunis, Tunisia
-              </span>
-              <span className="hidden sm:block text-center italic">"All the News That's Fit to Hire"</span>
-              <span>Vol. I • No. 1</span>
-            </div>
-
-            <div className="lg:hidden mt-4">
-              <div className="bg-[#2c2c2c] text-[#f5f1e8] text-[10px] sm:text-xs font-bold uppercase tracking-widest py-1 px-3 inline-block mb-2">
-                Breaking News
-              </div>
-              <article className="border-2 border-[#2c2c2c] p-4 sm:p-5 relative">
-                <div className="absolute -top-px left-8 right-8 h-1 bg-[#2c2c2c]" />
-                <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-black text-[#1a1a1a] leading-tight mb-1 ink-text">
-                  Big Data & Data Analytics Student Seeks New Opportunities
-                </h2>
-                <p className="text-[10px] sm:text-xs font-serif text-[#555] mb-3 border-b border-[#ccc] pb-3 uppercase tracking-wide">
-                  By Rayen Korbi • Special to The Portfolio
-                </p>
-                <div className="font-serif text-xs sm:text-sm text-[#333] space-y-2 sm:space-y-3 leading-relaxed first-letter:text-3xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none">
-                  <p>
-                    Big Data & Data Analytics student with hands-on experience in Python, data processing, and machine
-                    learning. Builder of real AI and automation projects, comfortable with reinforcement learning and
-                    n8n workflows. Looking for a final-year internship (PFE) in Big Data / AI to apply my skills to real
-                    datasets and build scalable models.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 mt-4 sm:mt-6">
-              {/* Left Column - Contact & CV */}
-              <aside className="lg:col-span-3 space-y-4 sm:space-y-6">
-                <section className="border-2 border-[#2c2c2c] p-3 sm:p-4 relative">
-                  <div className="absolute -top-3 left-3 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-sm sm:text-base font-bold text-[#1a1a1a] ink-text uppercase tracking-wide">
-                      Contact
-                    </h2>
-                  </div>
-                  <div className="space-y-2 text-xs sm:text-sm font-serif text-[#333] mt-2">
-                    <div className="flex items-start gap-2">
-                      <Mail className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-[#555] flex-shrink-0" />
-                      <a
-                        href="mailto:contact.rayenkorbi@gmail.com"
-                        className="hover:underline break-all text-xs sm:text-sm"
-                      >
-                        contact.rayenkorbi@gmail.com
-                      </a>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Phone className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-[#555] flex-shrink-0" />
-                      <span>(+216) 50243581</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Github className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-[#555] flex-shrink-0" />
-                      <a
-                        href="https://github.com/korbirayen"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        github.com/korbirayen
-                      </a>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 mt-0.5 text-[#555] flex-shrink-0" />
-                      <a
-                        href="https://www.linkedin.com/in/rayen-k-4ab072240/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:underline"
-                      >
-                        rayen-k-4ab072240
-                      </a>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-dashed border-[#999] flex flex-col xs:flex-row gap-2">
-                    <a
-                      href="/RayenKorbi.pdf"
-                      target="_blank"
-                      className="flex items-center justify-center gap-1 text-xs font-serif bg-[#2c2c2c] text-[#f5f1e8] px-3 py-2 sm:py-1.5 hover:bg-[#1a1a1a] transition-colors"
-                      rel="noreferrer"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      View CV
-                    </a>
-                    <a
-                      href="/RayenKorbi.pdf"
-                      download
-                      className="flex items-center justify-center gap-1 text-xs font-serif border border-[#2c2c2c] text-[#2c2c2c] px-3 py-2 sm:py-1.5 hover:bg-[#2c2c2c] hover:text-[#f5f1e8] transition-colors"
-                    >
-                      <Download className="w-3 h-3" />
-                      Download
-                    </a>
-                  </div>
-                </section>
-
-                <section className="border-2 border-dashed border-[#2c2c2c] p-3 sm:p-4 bg-[#f9f6ef]">
-                  <div className="text-center mb-2">
-                    <span className="text-[8px] sm:text-[10px] uppercase tracking-widest font-bold text-[#555]">
-                      — Classified —
-                    </span>
-                  </div>
-                  <h2 className="font-serif text-sm sm:text-base font-bold text-center text-[#1a1a1a] ink-text mb-2">
-                    SEEKING OPPORTUNITY
-                  </h2>
-                  <div className="space-y-2 text-xs sm:text-sm font-serif text-[#333] text-center">
-                    <div className="flex items-center justify-center gap-2">
-                      <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-[#555] flex-shrink-0" />
-                      <span>Agba, Tunis, Tunisia</span>
-                    </div>
-                    <p className="text-[10px] sm:text-xs text-[#555]">Available for PFE internship</p>
-                    <p className="text-[10px] sm:text-xs text-[#555] italic">Immediate availability</p>
-                  </div>
-                </section>
-
-                {/* Languages - with visual bars */}
-                <section className="border-2 border-[#2c2c2c] p-3 sm:p-4 relative">
-                  <div className="absolute -top-3 left-3 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-sm sm:text-base font-bold text-[#1a1a1a] ink-text uppercase tracking-wide">
-                      Languages
-                    </h2>
-                  </div>
-                  <div className="space-y-3 text-xs sm:text-sm font-serif mt-2">
-                    <div>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-bold text-[#1a1a1a]">Arabic</span>
-                        <span className="text-[10px] text-[#555]">Native</span>
-                      </div>
-                      <div className="h-2 bg-[#e0ddd4] border border-[#2c2c2c]">
-                        <div className="h-full bg-[#2c2c2c] w-full" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-bold text-[#1a1a1a]">English</span>
-                        <span className="text-[10px] text-[#555]">C1/B1</span>
-                      </div>
-                      <div className="h-2 bg-[#e0ddd4] border border-[#2c2c2c]">
-                        <div className="h-full bg-[#2c2c2c] w-[75%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="font-bold text-[#1a1a1a]">French</span>
-                        <span className="text-[10px] text-[#555]">B1</span>
-                      </div>
-                      <div className="h-2 bg-[#e0ddd4] border border-[#2c2c2c]">
-                        <div className="h-full bg-[#2c2c2c] w-[50%]" />
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </aside>
-
-              {/* Center Column - Main Content */}
-              <main className="lg:col-span-6 space-y-4 sm:space-y-6">
-                {/* Summary - Headline Article (desktop only) */}
-                <article className="hidden lg:block border-2 border-[#2c2c2c] p-5 relative">
-                  <div className="bg-[#2c2c2c] text-[#f5f1e8] text-[10px] font-bold uppercase tracking-widest py-1 px-3 inline-block absolute -top-3 left-4">
-                    Lead Story
-                  </div>
-                  <h2 className="font-serif text-2xl md:text-3xl font-black text-[#1a1a1a] leading-tight mb-1 ink-text mt-2">
-                    Big Data Student Revolutionizes Data Analytics Approach
-                  </h2>
-                  <p className="text-xs font-serif text-[#555] mb-3 border-b border-[#ccc] pb-3 uppercase tracking-wide">
-                    By Rayen Korbi • Special Correspondent
-                  </p>
-                  <div className="font-serif text-sm text-[#333] leading-relaxed columns-1 md:columns-2 gap-6">
-                    <p className="first-letter:text-4xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none mb-3">
-                      Big Data & Data Analytics student with hands-on experience in Python, data processing, and machine
-                      learning.
-                    </p>
-                    <p className="mb-3">
-                      Builder of real AI and automation projects, comfortable with reinforcement learning and n8n
-                      workflows.
-                    </p>
-                    <p>
-                      Looking for a final-year internship (PFE) in Big Data / AI to apply my skills to real datasets and
-                      build scalable models.
-                    </p>
-                  </div>
-                </article>
-
-                {/* Experience - with timeline styling */}
-                <article className="border-2 border-[#2c2c2c] p-4 sm:p-5 relative">
-                  <div className="absolute -top-3 left-4 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-base sm:text-lg font-bold text-[#1a1a1a] ink-text uppercase tracking-wide flex items-center gap-2">
-                      <span>★</span> Experience
-                    </h2>
-                  </div>
-                  <div className="space-y-4 sm:space-y-5 font-serif mt-2">
-                    <div className="relative pl-4 border-l-2 border-[#2c2c2c]">
-                      <div className="absolute -left-[5px] top-0 w-2 h-2 bg-[#2c2c2c] rounded-full" />
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-0.5 sm:gap-0">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">Video Editing</h3>
-                        <span className="text-[10px] sm:text-xs text-[#555] italic">03/2025 – 11/2025</span>
-                      </div>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside space-y-1">
-                        <li>Delivered high-quality multimedia projects while meeting tight deadlines.</li>
-                      </ul>
-                    </div>
-                    <div className="relative pl-4 border-l-2 border-[#2c2c2c]">
-                      <div className="absolute -left-[5px] top-0 w-2 h-2 bg-[#2c2c2c] rounded-full" />
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-0.5 sm:gap-0">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">
-                          Internship — Predictive Analytics
-                        </h3>
-                        <span className="text-[10px] sm:text-xs text-[#555] italic">06/2025 – 07/2025</span>
-                      </div>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside space-y-1">
-                        <li>Built end-to-end predictive modeling for public payroll optimization 2024-2030.</li>
-                        <li>Implemented full pipeline: ingestion, cleaning, feature engineering, training.</li>
-                        <li>Designed web dashboard for &quot;what-if&quot; forecasting scenarios.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-
-                {/* Projects - Card style */}
-                <article className="border-2 border-[#2c2c2c] p-4 sm:p-5 relative">
-                  <div className="absolute -top-3 left-4 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-base sm:text-lg font-bold text-[#1a1a1a] ink-text uppercase tracking-wide flex items-center gap-2">
-                      <span>★</span> Featured Projects
-                    </h2>
-                  </div>
-                  <div className="space-y-4 sm:space-y-5 font-serif mt-2">
-                    <div className="border border-[#ccc] p-3 bg-[#faf7f0]">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">MovieMind</h3>
-                        <span className="text-[8px] sm:text-[10px] uppercase tracking-wide bg-[#2c2c2c] text-[#f5f1e8] px-2 py-0.5">
-                          AI/ML
-                        </span>
-                      </div>
-                      <p className="text-[10px] sm:text-xs text-[#555] italic mb-2">
-                        Netflix-style Movie Trend Analyzer
-                      </p>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside space-y-1">
-                        <li>Built movie recommender with Python (Pandas, NumPy, Scikit-learn)</li>
-                        <li>Created data pipeline for viewing trends analysis</li>
-                        <li>Tested multiple algorithms for recommendation relevance</li>
-                      </ul>
-                    </div>
-                    <div className="border border-[#ccc] p-3 bg-[#faf7f0]">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">Axon</h3>
-                        <span className="text-[8px] sm:text-[10px] uppercase tracking-wide bg-[#2c2c2c] text-[#f5f1e8] px-2 py-0.5">
-                          LLM
-                        </span>
-                      </div>
-                      <p className="text-[10px] sm:text-xs text-[#555] italic mb-2">
-                        Private Centralized LLM • 03/2025 – Present
-                      </p>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside space-y-1">
-                        <li>Processes sensitive data offline, reducing security risks</li>
-                        <li>Enables natural-language querying and instant summarization</li>
-                        <li>Turns files into searchable local knowledge base</li>
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-
-                {/* Education */}
-                <article className="border-2 border-[#2c2c2c] p-4 sm:p-5 relative">
-                  <div className="absolute -top-3 left-4 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-base sm:text-lg font-bold text-[#1a1a1a] ink-text uppercase tracking-wide flex items-center gap-2">
-                      <span>★</span> Education
-                    </h2>
-                  </div>
-                  <div className="space-y-4 sm:space-y-5 font-serif mt-2">
-                    <div className="relative pl-4 border-l-2 border-[#2c2c2c]">
-                      <div className="absolute -left-[5px] top-0 w-2 h-2 bg-[#2c2c2c] rounded-full" />
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-0.5 sm:gap-0">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">
-                          Bachelor&apos;s in Big Data & Analytics
-                        </h3>
-                        <span className="text-[10px] sm:text-xs text-[#555] italic">09/2023 – Present</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-[#555] italic mb-1">Ecole Centrale Supérieure Privée</p>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside space-y-1">
-                        <li>Practical projects with Python, SQL, and data analytics tools</li>
-                      </ul>
-                    </div>
-                    <div className="relative pl-4 border-l-2 border-[#2c2c2c]">
-                      <div className="absolute -left-[5px] top-0 w-2 h-2 bg-[#2c2c2c] rounded-full" />
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-0.5 sm:gap-0">
-                        <h3 className="font-bold text-[#1a1a1a] text-sm sm:text-base">High School Diploma — CS</h3>
-                        <span className="text-[10px] sm:text-xs text-[#555] italic">09/2022 – 07/2023</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-[#555] italic mb-1">Lycée Hrairia 2</p>
-                      <ul className="text-xs sm:text-sm text-[#333] list-disc list-inside">
-                        <li>Projects using Python and PHP</li>
-                      </ul>
-                    </div>
-                  </div>
-                </article>
-              </main>
-
-              {/* Right Column - Skills & Certifications */}
-              <aside className="lg:col-span-3 space-y-4 sm:space-y-6">
-                <section className="border-2 border-[#2c2c2c] p-3 sm:p-4 bg-[#2c2c2c] text-[#f5f1e8]">
-                  <h2 className="font-serif text-sm sm:text-base font-bold text-center uppercase tracking-widest mb-2">
-                    Inside the Toolbox
-                  </h2>
-                  <p className="text-[10px] sm:text-xs text-center italic opacity-80">
-                    The arsenal behind every line of code
-                  </p>
-                </section>
-
-                {/* Skills with visual tags */}
-                <section className="border-2 border-[#2c2c2c] p-3 sm:p-4 relative">
-                  <div className="absolute -top-3 left-3 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-sm sm:text-base font-bold text-[#1a1a1a] ink-text uppercase tracking-wide">
-                      Skills
-                    </h2>
-                  </div>
-                  <div className="space-y-3 sm:space-y-4 font-serif text-sm mt-2">
-                    {[
-                      { title: "Data Visualization", skills: "Tableau • Power BI • Matplotlib • Seaborn" },
-                      { title: "Python", skills: "Automation • NLP • OpenCV • Pandas • NumPy" },
-                      { title: "Predictive Modeling", skills: "Supervised • Unsupervised • LLMs • AI Agents" },
-                      { title: "Automation", skills: "Power Automate • Robot Framework • n8n" },
-                      { title: "Big Data", skills: "Hadoop • Spark" },
-                      { title: "Tools", skills: "Microsoft 365 • Notion" },
-                    ].map((item) => (
-                      <div key={item.title} className="border-b border-dotted border-[#ccc] pb-2 last:border-0">
-                        <h4 className="font-bold text-[#1a1a1a] text-[10px] sm:text-xs uppercase tracking-wide">
-                          {item.title}
-                        </h4>
-                        <p className="text-[#555] text-[10px] sm:text-xs">{item.skills}</p>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Certifications - Badge style */}
-                <section className="border-2 border-[#2c2c2c] p-3 sm:p-4 relative">
-                  <div className="absolute -top-3 left-3 bg-[#f4f1ea] px-2">
-                    <h2 className="font-serif text-sm sm:text-base font-bold text-[#1a1a1a] ink-text uppercase tracking-wide">
-                      Certifications
-                    </h2>
-                  </div>
-                  <div className="space-y-2 mt-2">
-                    {[
-                      { org: "freeCodeCamp", year: "2024", cert: "Data Analysis" },
-                      { org: "AWS", year: "2025", cert: "Cloud Foundations" },
-                      { org: "Hashgraph", year: "2025", cert: "Web 3" },
-                      { org: "Google", year: "2024", cert: "Cybersecurity" },
-                      { org: "Stanford", year: "2024", cert: "Machine Learning" },
-                    ].map((item) => (
-                      <div key={item.cert} className="flex items-center gap-2 border border-[#ccc] p-2 bg-[#faf7f0]">
-                        <div className="w-8 h-8 bg-[#2c2c2c] text-[#f5f1e8] flex items-center justify-center text-[8px] font-bold flex-shrink-0">
-                          {item.org.slice(0, 2).toUpperCase()}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="font-bold text-[10px] sm:text-xs text-[#1a1a1a] truncate">{item.cert}</p>
-                          <p className="text-[8px] sm:text-[10px] text-[#555]">
-                            {item.org} • {item.year}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-
-                {/* Interests - Tag cloud style */}
-                <section className="border-2 border-dashed border-[#2c2c2c] p-3 sm:p-4">
-                  <h2 className="font-serif text-sm sm:text-base font-bold text-center text-[#1a1a1a] ink-text mb-3 uppercase tracking-wide">
-                    Interests
-                  </h2>
-                  <div className="flex flex-wrap justify-center gap-1 sm:gap-2">
-                    {["Open Source", "History", "Problem Solving", "Movies", "Video Games"].map((interest, i) => (
-                      <span
-                        key={interest}
-                        className={`text-[10px] sm:text-xs font-serif px-2 py-1 ${
-                          i % 2 === 0 ? "bg-[#2c2c2c] text-[#f5f1e8]" : "border border-[#2c2c2c] text-[#333]"
-                        }`}
-                      >
-                        {interest}
-                      </span>
-                    ))}
-                  </div>
-                </section>
-              </aside>
-            </div>
-
-            <footer className="mt-6 sm:mt-8 pt-4 border-t-4 border-double border-[#2c2c2c]">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#2c2c2c] to-transparent" />
-                <span className="text-lg text-[#2c2c2c]">❦</span>
-                <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#2c2c2c] to-transparent" />
-              </div>
-              <div className="flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-xs font-serif text-[#555] gap-2 sm:gap-0">
-                <span>© 2025 Rayen Korbi. All rights reserved.</span>
-                <span className="italic">&quot;Data-driven. Human-focused.&quot;</span>
-                <span className="hidden sm:inline">Printed in Tunis, Tunisia</span>
-              </div>
-            </footer>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-[#f5f1e8]"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
-      </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden absolute top-full left-0 right-0 bg-[#0f0f0f]/98 backdrop-blur-md transition-all duration-300 ${
+            mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
+          <div className="px-4 py-6 space-y-4">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left font-serif text-lg uppercase tracking-wider py-2 transition-colors ${
+                  activeSection === item.id ? "text-[#c9a962]" : "text-[#f5f1e8]/70"
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center px-4">
+        <div className="text-center max-w-4xl mx-auto relative z-10">
+          <div className="animate-fade-in-up">
+            <p className="font-serif text-sm sm:text-base uppercase tracking-[0.3em] text-[#c9a962] mb-4">
+              <Sparkles className="w-4 h-4 inline-block mr-2" />
+              Big Data & AI Specialist
+              <Sparkles className="w-4 h-4 inline-block ml-2" />
+            </p>
+          </div>
+
+          <h1 className="animate-fade-in-up delay-200 font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight mb-6">
+            <span className="gold-gradient">Rayen</span>
+            <br />
+            <span className="text-[#f5f1e8]">Korbi</span>
+          </h1>
+
+          <p className="animate-fade-in-up delay-400 font-serif text-lg sm:text-xl md:text-2xl italic text-[#f5f1e8]/70 max-w-2xl mx-auto mb-8">
+            &ldquo;Transforming raw data into powerful decisions through innovative analytics and machine learning solutions&rdquo;
+          </p>
+
+          <div className="animate-fade-in-up delay-600 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="/RayenKorbi.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 bg-[#c9a962] text-[#1a1a1a] px-8 py-4 font-serif font-bold uppercase tracking-wider hover:bg-[#d4b872] transition-all hover-lift"
+            >
+              <ExternalLink className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+              View Resume
+            </a>
+            <a
+              href="/RayenKorbi.pdf"
+              download
+              className="group flex items-center gap-2 border-2 border-[#c9a962] text-[#c9a962] px-8 py-4 font-serif font-bold uppercase tracking-wider hover:bg-[#c9a962] hover:text-[#1a1a1a] transition-all"
+            >
+              <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+              Download CV
+            </a>
+          </div>
+
+          <div className="animate-fade-in-up delay-800 flex items-center justify-center gap-6 mt-12">
+            <a
+              href="https://github.com/korbirayen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+              aria-label="GitHub"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rayen-k-4ab072240/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a
+              href="mailto:contact.rayenkorbi@gmail.com"
+              className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+              aria-label="Email"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <button
+          onClick={() => scrollToSection("about")}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#c9a962] animate-bounce cursor-pointer"
+          aria-label="Scroll down"
+        >
+          <ChevronDown className="w-8 h-8" />
+        </button>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="relative py-24 sm:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8">About Me</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="font-serif text-lg sm:text-xl text-[#f5f1e8]/80 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-[#c9a962] first-letter:float-left first-letter:mr-3">
+                I&apos;m a passionate Big Data & Data Analytics student with hands-on experience in Python, data processing, and machine learning. My journey in tech has led me to build real AI and automation projects that solve practical problems.
+              </p>
+              <p className="font-serif text-lg text-[#f5f1e8]/70 leading-relaxed">
+                I specialize in transforming complex datasets into actionable insights, building predictive models, and creating automation workflows that streamline business processes. Currently seeking a final-year internship (PFE) in Big Data / AI to apply my skills to real-world challenges.
+              </p>
+              <div className="flex flex-wrap gap-3 pt-4">
+                {["Python", "Machine Learning", "Big Data", "Automation", "AI Agents"].map((tag) => (
+                  <span key={tag} className="skill-tag px-4 py-2 border border-[#c9a962]/50 text-[#c9a962] font-serif text-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#c9a962]/20 to-transparent rounded-lg blur-xl" />
+              <div className="relative bg-[#1a1a1a] border border-[#c9a962]/30 p-8 space-y-6">
+                <h3 className="font-serif text-xl font-bold text-[#c9a962] flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  Quick Facts
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#c9a962]">📍</span>
+                    <div>
+                      <p className="font-serif font-bold text-[#f5f1e8]">Location</p>
+                      <p className="text-[#f5f1e8]/60">Tunis, Tunisia</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#c9a962]">🎓</span>
+                    <div>
+                      <p className="font-serif font-bold text-[#f5f1e8]">Education</p>
+                      <p className="text-[#f5f1e8]/60">Bachelor&apos;s in Big Data & Analytics</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#c9a962]">💼</span>
+                    <div>
+                      <p className="font-serif font-bold text-[#f5f1e8]">Status</p>
+                      <p className="text-[#f5f1e8]/60">Available for PFE Internship</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-[#c9a962]">🌍</span>
+                    <div>
+                      <p className="font-serif font-bold text-[#f5f1e8]">Languages</p>
+                      <p className="text-[#f5f1e8]/60">Arabic (Native), English (C1), French (B1)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="relative py-24 sm:py-32 px-4 bg-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8 flex items-center gap-3 justify-center">
+              <Briefcase className="w-8 h-8" />
+              Experience
+            </h2>
+          </div>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#c9a962] via-[#c9a962]/50 to-transparent" />
+
+            <div className="space-y-12">
+              {/* Experience 1 */}
+              <div className="relative lg:grid lg:grid-cols-2 lg:gap-12">
+                <div className="lg:text-right lg:pr-12">
+                  <div className="hidden lg:block absolute left-1/2 top-0 w-4 h-4 -translate-x-1/2 bg-[#c9a962] rounded-full timeline-dot" />
+                  <span className="inline-block font-serif text-sm text-[#c9a962] uppercase tracking-wider mb-2">
+                    June 2025 – July 2025
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-[#f5f1e8] mb-2">
+                    Predictive Analytics Intern
+                  </h3>
+                  <p className="font-serif text-[#f5f1e8]/60 italic mb-4">Government Analytics Division</p>
+                </div>
+                <div className="pl-16 lg:pl-12 mt-4 lg:mt-0">
+                  <div className="lg:hidden absolute left-8 top-0 w-4 h-4 -translate-x-1/2 bg-[#c9a962] rounded-full" />
+                  <div className="modern-card p-6">
+                    <ul className="space-y-3 font-serif text-[#333]">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                        <span>Built end-to-end predictive modeling for public payroll optimization 2024-2030</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                        <span>Implemented full pipeline: ingestion, cleaning, feature engineering, training</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                        <span>Designed interactive web dashboard for &quot;what-if&quot; forecasting scenarios</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Experience 2 */}
+              <div className="relative lg:grid lg:grid-cols-2 lg:gap-12">
+                <div className="lg:text-right lg:pr-12 lg:order-1">
+                  <div className="hidden lg:block absolute left-1/2 top-0 w-4 h-4 -translate-x-1/2 bg-[#c9a962] rounded-full timeline-dot" />
+                  <div className="pl-16 lg:pl-0">
+                    <div className="modern-card p-6">
+                      <ul className="space-y-3 font-serif text-[#333]">
+                        <li className="flex items-start gap-3 lg:flex-row-reverse lg:text-right">
+                          <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                          <span>Delivered high-quality multimedia projects while meeting tight deadlines</span>
+                        </li>
+                        <li className="flex items-start gap-3 lg:flex-row-reverse lg:text-right">
+                          <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                          <span>Managed client relationships and project timelines effectively</span>
+                        </li>
+                        <li className="flex items-start gap-3 lg:flex-row-reverse lg:text-right">
+                          <CheckCircle2 className="w-5 h-5 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                          <span>Developed creative solutions for diverse content requirements</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:pl-12 lg:order-2 mt-4 lg:mt-0">
+                  <div className="lg:hidden absolute left-8 top-0 w-4 h-4 -translate-x-1/2 bg-[#c9a962] rounded-full" />
+                  <span className="inline-block font-serif text-sm text-[#c9a962] uppercase tracking-wider mb-2">
+                    March 2025 – November 2025
+                  </span>
+                  <h3 className="font-serif text-2xl font-bold text-[#f5f1e8] mb-2">
+                    Freelance Video Editor
+                  </h3>
+                  <p className="font-serif text-[#f5f1e8]/60 italic">Self-Employed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="relative py-24 sm:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8 flex items-center gap-3 justify-center">
+              <Code2 className="w-8 h-8" />
+              Featured Projects
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Project 1 */}
+            <div className="group modern-card overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-[#c9a962]/20 to-[#1a1a1a] flex items-center justify-center">
+                <Brain className="w-20 h-20 text-[#c9a962] group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-4 right-4">
+                  <span className="badge-modern">AI/ML</span>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <h3 className="font-serif text-2xl font-bold text-[#1a1a1a]">MovieMind</h3>
+                <p className="font-serif text-[#555] italic">Netflix-style Movie Trend Analyzer</p>
+                <ul className="space-y-2 font-serif text-sm text-[#333]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Built movie recommender with Python (Pandas, NumPy, Scikit-learn)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Created data pipeline for viewing trends analysis
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Tested multiple algorithms for recommendation relevance
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {["Python", "Pandas", "ML", "Data Pipeline"].map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a] text-[#c9a962]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 */}
+            <div className="group modern-card overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-[#c9a962]/20 to-[#1a1a1a] flex items-center justify-center">
+                <Zap className="w-20 h-20 text-[#c9a962] group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-4 right-4">
+                  <span className="badge-modern">LLM</span>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <h3 className="font-serif text-2xl font-bold text-[#1a1a1a]">Axon</h3>
+                <p className="font-serif text-[#555] italic">Private Centralized LLM • 03/2025 – Present</p>
+                <ul className="space-y-2 font-serif text-sm text-[#333]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Processes sensitive data offline, reducing security risks
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Enables natural-language querying and instant summarization
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Turns files into searchable local knowledge base
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {["LLM", "NLP", "Privacy", "Knowledge Base"].map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a] text-[#c9a962]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 - Placeholder */}
+            <div className="group modern-card overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-[#c9a962]/20 to-[#1a1a1a] flex items-center justify-center">
+                <Database className="w-20 h-20 text-[#c9a962] group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-4 right-4">
+                  <span className="badge-modern">Big Data</span>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <h3 className="font-serif text-2xl font-bold text-[#1a1a1a]">DataFlow Engine</h3>
+                <p className="font-serif text-[#555] italic">Real-time Data Processing Pipeline</p>
+                <ul className="space-y-2 font-serif text-sm text-[#333]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Built scalable ETL pipeline processing 1M+ records daily
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Implemented Apache Spark for distributed computing
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Reduced data processing time by 70%
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {["Spark", "Hadoop", "ETL", "Kafka"].map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a] text-[#c9a962]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 - Placeholder */}
+            <div className="group modern-card overflow-hidden">
+              <div className="relative h-48 bg-gradient-to-br from-[#c9a962]/20 to-[#1a1a1a] flex items-center justify-center">
+                <Sparkles className="w-20 h-20 text-[#c9a962] group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute top-4 right-4">
+                  <span className="badge-modern">Automation</span>
+                </div>
+              </div>
+              <div className="p-6 space-y-4">
+                <h3 className="font-serif text-2xl font-bold text-[#1a1a1a]">AutoInsight</h3>
+                <p className="font-serif text-[#555] italic">Intelligent Workflow Automation</p>
+                <ul className="space-y-2 font-serif text-sm text-[#333]">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Automated 50+ business processes using n8n workflows
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Integrated AI agents for intelligent decision making
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#c9a962]">→</span>
+                    Saved 100+ hours of manual work monthly
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {["n8n", "AI Agents", "API", "Automation"].map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-[#1a1a1a] text-[#c9a962]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="relative py-24 sm:py-32 px-4 bg-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8 flex items-center gap-3 justify-center">
+              <Sparkles className="w-8 h-8" />
+              Skills & Expertise
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map((skill, index) => (
+              <div
+                key={skill.category}
+                className="group bg-[#1a1a1a] border border-[#c9a962]/20 p-6 hover:border-[#c9a962]/50 transition-all hover-lift"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-[#c9a962]/10 flex items-center justify-center group-hover:bg-[#c9a962]/20 transition-colors">
+                    <skill.icon className="w-6 h-6 text-[#c9a962]" />
+                  </div>
+                  <h3 className="font-serif text-lg font-bold text-[#f5f1e8]">{skill.category}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span
+                      key={item}
+                      className="skill-tag text-xs px-3 py-1.5 border border-[#c9a962]/30 text-[#c9a962]/80"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Tools */}
+            <div className="group bg-[#1a1a1a] border border-[#c9a962]/20 p-6 hover:border-[#c9a962]/50 transition-all hover-lift">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-[#c9a962]/10 flex items-center justify-center group-hover:bg-[#c9a962]/20 transition-colors">
+                  <Code2 className="w-6 h-6 text-[#c9a962]" />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-[#f5f1e8]">Tools & Platforms</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {["Git", "Docker", "VS Code", "Jupyter", "Microsoft 365", "Notion"].map((item) => (
+                  <span
+                    key={item}
+                    className="skill-tag text-xs px-3 py-1.5 border border-[#c9a962]/30 text-[#c9a962]/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="mt-16">
+            <h3 className="font-serif text-2xl font-bold text-center text-[#f5f1e8] mb-8 flex items-center justify-center gap-3">
+              <Award className="w-6 h-6 text-[#c9a962]" />
+              Certifications
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {certifications.map((cert) => (
+                <div
+                  key={cert.cert}
+                  className="cert-card group bg-[#1a1a1a] border border-[#c9a962]/20 p-4 hover:border-[#c9a962]/50 transition-all"
+                >
+                  <div className="cert-card-inner flex items-center gap-4">
+                    <div
+                      className="w-12 h-12 flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+                      style={{ backgroundColor: cert.color }}
+                    >
+                      {cert.org.slice(0, 2).toUpperCase()}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-serif font-bold text-[#f5f1e8] truncate">{cert.cert}</p>
+                      <p className="text-sm text-[#f5f1e8]/50">
+                        {cert.org} • {cert.year}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="relative py-24 sm:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8">
+              What People Say
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-[#1a1a1a] border border-[#c9a962]/20 p-8 relative hover:border-[#c9a962]/50 transition-all hover-lift"
+              >
+                <span className="quote-mark absolute top-4 left-4">&ldquo;</span>
+                <p className="font-serif text-[#f5f1e8]/80 italic mb-6 relative z-10 pt-8">
+                  {testimonial.quote}
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-[#c9a962] flex items-center justify-center text-[#1a1a1a] font-bold">
+                    {testimonial.avatar}
+                  </div>
+                  <div>
+                    <p className="font-serif font-bold text-[#f5f1e8]">{testimonial.author}</p>
+                    <p className="text-sm text-[#f5f1e8]/50">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="relative py-24 sm:py-32 px-4 bg-[#0a0a0a]">
+        <div className="max-w-6xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8 flex items-center gap-3 justify-center">
+              <GraduationCap className="w-8 h-8" />
+              Education
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[#1a1a1a] border border-[#c9a962]/20 p-8 hover:border-[#c9a962]/50 transition-all hover-lift">
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-16 h-16 bg-[#c9a962]/10 flex items-center justify-center">
+                  <GraduationCap className="w-8 h-8 text-[#c9a962]" />
+                </div>
+                <span className="text-sm text-[#c9a962]">2023 – Present</span>
+              </div>
+              <h3 className="font-serif text-xl font-bold text-[#f5f1e8] mb-2">
+                Bachelor&apos;s in Big Data & Analytics
+              </h3>
+              <p className="font-serif text-[#f5f1e8]/60 italic mb-4">
+                Ecole Centrale Supérieure Privée
+              </p>
+              <ul className="space-y-2 text-sm text-[#f5f1e8]/70">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Practical projects with Python, SQL, and data analytics tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Machine learning and predictive modeling coursework</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Big data technologies: Hadoop, Spark ecosystem</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-[#1a1a1a] border border-[#c9a962]/20 p-8 hover:border-[#c9a962]/50 transition-all hover-lift">
+              <div className="flex items-start justify-between mb-4">
+                <div className="w-16 h-16 bg-[#c9a962]/10 flex items-center justify-center">
+                  <Award className="w-8 h-8 text-[#c9a962]" />
+                </div>
+                <span className="text-sm text-[#c9a962]">2022 – 2023</span>
+              </div>
+              <h3 className="font-serif text-xl font-bold text-[#f5f1e8] mb-2">
+                High School Diploma — Computer Science
+              </h3>
+              <p className="font-serif text-[#f5f1e8]/60 italic mb-4">Lycée Hrairia 2</p>
+              <ul className="space-y-2 text-sm text-[#f5f1e8]/70">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Programming fundamentals with Python and PHP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Database management and SQL basics</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#c9a962] flex-shrink-0 mt-0.5" />
+                  <span>Computer science theory and algorithms</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-24 sm:py-32 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="section-divider mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-center gold-gradient px-8 flex items-center gap-3 justify-center">
+              <Mail className="w-8 h-8" />
+              Get In Touch
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <p className="font-serif text-lg text-[#f5f1e8]/80">
+                I&apos;m currently looking for a final-year internship (PFE) in Big Data / AI. If you have an opportunity or just want to say hello, feel free to reach out!
+              </p>
+
+              <div className="space-y-4">
+                <a
+                  href="mailto:contact.rayenkorbi@gmail.com"
+                  className="flex items-center gap-4 p-4 border border-[#c9a962]/20 hover:border-[#c9a962]/50 transition-all group"
+                >
+                  <div className="w-12 h-12 bg-[#c9a962]/10 flex items-center justify-center group-hover:bg-[#c9a962]/20 transition-colors">
+                    <Mail className="w-5 h-5 text-[#c9a962]" />
+                  </div>
+                  <div>
+                    <p className="font-serif font-bold text-[#f5f1e8]">Email</p>
+                    <p className="text-[#f5f1e8]/60">contact.rayenkorbi@gmail.com</p>
+                  </div>
+                </a>
+
+                <a
+                  href="tel:+21650243581"
+                  className="flex items-center gap-4 p-4 border border-[#c9a962]/20 hover:border-[#c9a962]/50 transition-all group"
+                >
+                  <div className="w-12 h-12 bg-[#c9a962]/10 flex items-center justify-center group-hover:bg-[#c9a962]/20 transition-colors">
+                    <Phone className="w-5 h-5 text-[#c9a962]" />
+                  </div>
+                  <div>
+                    <p className="font-serif font-bold text-[#f5f1e8]">Phone</p>
+                    <p className="text-[#f5f1e8]/60">(+216) 50 243 581</p>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-4 p-4 border border-[#c9a962]/20">
+                  <div className="w-12 h-12 bg-[#c9a962]/10 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-[#c9a962]" />
+                  </div>
+                  <div>
+                    <p className="font-serif font-bold text-[#f5f1e8]">Location</p>
+                    <p className="text-[#f5f1e8]/60">Tunis, Tunisia</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/korbirayen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-[#1a1a1a] border border-[#c9a962]/20 flex items-center justify-center hover:border-[#c9a962] hover:text-[#c9a962] transition-all"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/rayen-k-4ab072240/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-[#1a1a1a] border border-[#c9a962]/20 flex items-center justify-center hover:border-[#c9a962] hover:text-[#c9a962] transition-all"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block font-serif text-sm text-[#f5f1e8]/70 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Doe"
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-[#c9a962]/20 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:border-[#c9a962] focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block font-serif text-sm text-[#f5f1e8]/70 mb-2">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-[#c9a962]/20 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:border-[#c9a962] focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block font-serif text-sm text-[#f5f1e8]/70 mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  placeholder="Hello Rayen, I'd like to discuss..."
+                  className="w-full px-4 py-3 bg-[#1a1a1a] border border-[#c9a962]/20 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:border-[#c9a962] focus:outline-none transition-colors resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={formStatus !== "idle"}
+                className="w-full flex items-center justify-center gap-2 bg-[#c9a962] text-[#1a1a1a] px-8 py-4 font-serif font-bold uppercase tracking-wider hover:bg-[#d4b872] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formStatus === "idle" && (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
+                )}
+                {formStatus === "sending" && (
+                  <>
+                    <div className="w-5 h-5 border-2 border-[#1a1a1a] border-t-transparent rounded-full animate-spin" />
+                    Sending...
+                  </>
+                )}
+                {formStatus === "sent" && (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    Message Sent!
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="relative py-12 px-4 border-t border-[#c9a962]/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left">
+              <p className="font-serif text-2xl font-bold gold-gradient mb-2">Rayen Korbi</p>
+              <p className="text-sm text-[#f5f1e8]/50">Big Data & AI Specialist</p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <a
+                href="https://github.com/korbirayen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rayen-k-4ab072240/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:contact.rayenkorbi@gmail.com"
+                className="contact-icon text-[#f5f1e8]/50 hover:text-[#c9a962] transition-all"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+
+            <div className="text-center md:text-right">
+              <p className="text-sm text-[#f5f1e8]/50">
+                © {new Date().getFullYear()} Rayen Korbi. All rights reserved.
+              </p>
+              <p className="text-xs text-[#f5f1e8]/30 italic mt-1">
+                &ldquo;Data-driven. Human-focused.&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 w-12 h-12 bg-[#c9a962] text-[#1a1a1a] flex items-center justify-center transition-all duration-300 hover:bg-[#d4b872] z-50 ${
+          showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
     </div>
   )
 }
